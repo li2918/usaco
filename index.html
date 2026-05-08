@@ -8,12 +8,12 @@
   </head>
   <body>
     <main class="app-shell">
-      <aside class="sidebar" aria-label="测评导航">
+      <aside class="sidebar" aria-label="测评控制台">
         <div class="brand">
           <span class="brand-mark" aria-hidden="true">U</span>
           <div>
             <h1>USACO 能力评估</h1>
-            <p>新学员入班诊断</p>
+            <p>分层诊断 · 单题作答 · 代码题复核</p>
           </div>
         </div>
 
@@ -47,14 +47,19 @@
           <h2 id="progress-title">测评进度</h2>
           <div class="timer">
             <span>剩余时间</span>
-            <strong id="timeLeft">45:00</strong>
+            <strong id="timeLeft">60:00</strong>
           </div>
           <div class="progress-track" aria-hidden="true">
             <div id="progressFill"></div>
           </div>
-          <p id="progressText">0 / 18 已完成</p>
+          <p id="progressText">0 / 12 已完成</p>
           <button id="startBtn" class="primary-btn" type="button">开始测评</button>
           <button id="resetBtn" class="secondary-btn" type="button">重新开始</button>
+        </section>
+
+        <section class="panel question-map" aria-labelledby="map-title">
+          <h2 id="map-title">题目导航</h2>
+          <div id="questionMap" class="map-grid"></div>
         </section>
       </aside>
 
@@ -62,20 +67,51 @@
         <header class="topbar">
           <div>
             <p class="eyebrow">Adaptive Diagnostic</p>
-            <h2>从基础实现到算法建模的分层测评</h2>
+            <h2>一题一题完成，逐步定位真实 USACO 能力</h2>
           </div>
           <div class="status-pill" id="levelPreview">等待开始</div>
         </header>
 
-        <nav class="tabs" aria-label="题目分组">
-          <button class="tab active" type="button" data-filter="all">全部</button>
-          <button class="tab" type="button" data-filter="foundation">基础</button>
-          <button class="tab" type="button" data-filter="bronze">Bronze</button>
-          <button class="tab" type="button" data-filter="silver">Silver</button>
-          <button class="tab" type="button" data-filter="gold">Gold</button>
-        </nav>
+        <section id="intro" class="intro-panel">
+          <div>
+            <p class="eyebrow">Assessment Flow</p>
+            <h2>从基础读题到代码实现的完整入班测评</h2>
+            <p>
+              测评共 12 题，包含概念题、简答题和代码题。系统会自动初评客观题与代码结构，
+              并在报告中标出需要老师人工复核的高阶题。
+            </p>
+          </div>
+          <button id="introStartBtn" class="primary-action" type="button">开始第一题</button>
+        </section>
 
-        <section id="questionList" class="question-list" aria-live="polite"></section>
+        <section id="questionStage" class="question-stage" aria-live="polite" hidden>
+          <div class="stage-head">
+            <div>
+              <p id="questionKicker" class="eyebrow">Question</p>
+              <h2 id="questionTitle"></h2>
+            </div>
+            <div id="questionType" class="type-pill"></div>
+          </div>
+
+          <article class="question-card">
+            <div class="question-meta">
+              <span id="questionBadge" class="badge"></span>
+              <span id="questionPoints" class="points"></span>
+            </div>
+            <p id="questionPrompt" class="prompt"></p>
+            <div id="problemBlock" class="problem-block" hidden></div>
+            <div id="answerArea" class="answer-area"></div>
+          </article>
+
+          <div id="feedback" class="feedback" hidden></div>
+
+          <nav class="stage-actions" aria-label="题目操作">
+            <button id="prevBtn" class="secondary-btn" type="button">上一题</button>
+            <button id="saveBtn" class="primary-action" type="button">保存答案</button>
+            <button id="nextBtn" class="secondary-btn" type="button">下一题</button>
+            <button id="submitBtn" class="finish-btn" type="button">提交测评</button>
+          </nav>
+        </section>
 
         <section id="report" class="report" aria-live="polite" hidden>
           <div class="report-header">
@@ -95,8 +131,8 @@
               <strong id="recommendedLevel">待评估</strong>
             </article>
             <article>
-              <span>准确率</span>
-              <strong id="accuracy">0%</strong>
+              <span>完成度</span>
+              <strong id="completionRate">0%</strong>
             </article>
           </div>
           <div class="report-columns">
@@ -110,24 +146,16 @@
             </div>
           </div>
           <div class="panel">
+            <h3>代码题复核清单</h3>
+            <div id="codeReviewList" class="review-list"></div>
+          </div>
+          <div class="panel">
             <h3>学习路径建议</h3>
             <ol id="studyPlan" class="study-plan"></ol>
           </div>
         </section>
       </section>
     </main>
-
-    <template id="questionTemplate">
-      <article class="question-card">
-        <div class="question-meta">
-          <span class="badge"></span>
-          <span class="points"></span>
-        </div>
-        <h3></h3>
-        <p class="prompt"></p>
-        <div class="options"></div>
-      </article>
-    </template>
 
     <script src="app.js"></script>
   </body>

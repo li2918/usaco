@@ -1,154 +1,171 @@
 const questions = [
   {
-    id: "f1",
+    id: "q1",
+    type: "choice",
     group: "foundation",
     level: "基础",
-    skill: "编程基础",
-    points: 4,
-    title: "循环边界",
-    prompt: "要读取 N 头牛的编号并求和，N 已知。哪种循环最不容易出现多读或少读？",
+    skill: "读题与边界",
+    points: 6,
+    title: "循环边界与输入数量",
+    prompt: "题目给定 N，接下来有 N 行牛的编号。哪种写法最不容易多读或少读？",
     options: [
-      "for (int i = 0; i <= N; i++)",
-      "for (int i = 0; i < N; i++)",
+      "for (int i = 0; i <= N; i++) 读入",
+      "for (int i = 0; i < N; i++) 读入",
       "while (N--) 后再额外读一次",
-      "从 1 循环到 N-1"
+      "从 1 循环到 N - 1"
     ],
     answer: 1
   },
   {
-    id: "f2",
-    group: "foundation",
-    level: "基础",
-    skill: "调试习惯",
-    points: 4,
-    title: "样例不通过时的第一步",
-    prompt: "一道题样例输出不对，最合适的第一步是什么？",
-    options: [
-      "马上换一种完全不同的算法",
-      "打印关键变量或手算一组小样例定位差异",
-      "只改输出格式直到样例看起来接近",
-      "忽略样例，直接提交"
-    ],
-    answer: 1
-  },
-  {
-    id: "f3",
+    id: "q2",
+    type: "choice",
     group: "foundation",
     level: "基础",
     skill: "复杂度分析",
-    points: 5,
-    title: "约束与复杂度",
-    prompt: "如果 N 最大是 100000，通常哪种复杂度最稳妥？",
+    points: 7,
+    title: "约束与复杂度判断",
+    prompt: "如果 N 最大为 100000，通常哪类复杂度最适合作为第一选择？",
     options: ["O(N^2)", "O(N!)", "O(N log N)", "O(2^N)"],
     answer: 2
   },
   {
-    id: "b1",
+    id: "q3",
+    type: "short",
     group: "bronze",
     level: "Bronze",
     skill: "模拟实现",
-    points: 6,
-    title: "模拟题核心",
-    prompt: "USACO Bronze 模拟题最重要的能力通常是？",
-    options: [
-      "先写高级数据结构",
-      "把题意状态、转移顺序和边界条件准确翻译成代码",
-      "只记忆固定模板",
-      "优先证明最优子结构"
-    ],
-    answer: 1
+    points: 10,
+    title: "描述模拟状态",
+    prompt: "用 2 到 4 句话说明：写 USACO Bronze 模拟题时，你会如何确定状态变量、更新顺序和边界条件？",
+    keywords: ["状态", "顺序", "边界", "样例", "变量", "更新"],
+    minLength: 35,
+    rubric: "优秀答案应提到状态变量、按题意顺序更新、处理边界，并用样例或小数据验证。"
   },
   {
-    id: "b2",
+    id: "q4",
+    type: "code",
     group: "bronze",
     level: "Bronze",
-    skill: "枚举",
-    points: 6,
-    title: "可行枚举",
-    prompt: "N <= 100，检查所有二元组 (i, j) 是否满足条件，最自然的做法是？",
-    options: ["双重循环", "Dijkstra", "线段树", "后缀数组"],
-    answer: 0
-  },
-  {
-    id: "b3",
-    group: "bronze",
-    level: "Bronze",
-    skill: "排序与贪心",
-    points: 7,
-    title: "先排序再处理",
-    prompt: "要把区间按左端点从小到大合并，第一步通常是？",
-    options: [
-      "按输入顺序直接合并",
-      "按右端点随机打乱",
-      "按左端点排序，再维护当前合并区间",
-      "对每个点都建图"
+    skill: "枚举与实现",
+    points: 14,
+    title: "Bronze 代码题：最佳双牛组合",
+    prompt: "给定 N 个正整数，选出两个不同位置的数，使它们的和最大。请写出完整函数或完整程序，并说明复杂度。",
+    problem: {
+      input: "第一行 N，第二行 N 个整数。2 <= N <= 1000。",
+      output: "输出两个不同数的最大和。",
+      sampleIn: "5\n3 9 1 7 9",
+      sampleOut: "18"
+    },
+    checks: [
+      { label: "读入 N 和数组", patterns: ["cin", "input", "Scanner", "read"], points: 3 },
+      { label: "保证选择两个不同位置", patterns: ["i < j", "j = i + 1", "second", "两个", "different"], points: 3 },
+      { label: "使用排序或一次扫描维护最大两个数", patterns: ["sort", "max1", "max2", "first", "second"], points: 5 },
+      { label: "写出复杂度", patterns: ["O(N)", "O(N log N)", "复杂度"], points: 3 }
     ],
-    answer: 2
+    rubric: "可以排序取最大两个，也可以一次扫描维护最大和次大。暴力 O(N^2) 在 N=1000 可接受，但不是最优表达。"
   },
   {
-    id: "b4",
-    group: "bronze",
-    level: "Bronze",
-    skill: "数据结构基础",
-    points: 6,
-    title: "频次统计",
-    prompt: "要统计每个牛编号出现次数，编号范围较小，最直接的数据结构是？",
-    options: ["数组或哈希表", "最小生成树", "拓扑排序", "二分图匹配"],
-    answer: 0
-  },
-  {
-    id: "s1",
-    group: "silver",
-    level: "Silver",
-    skill: "二分答案",
-    points: 9,
-    title: "二分答案条件",
-    prompt: "二分答案通常依赖什么性质？",
-    options: [
-      "答案必须是字符串",
-      "可行性随答案单调变化",
-      "输入必须已经随机",
-      "所有题都能转成递归"
-    ],
-    answer: 1
-  },
-  {
-    id: "s2",
+    id: "q5",
+    type: "choice",
     group: "silver",
     level: "Silver",
     skill: "前缀和",
-    points: 8,
-    title: "区间和查询",
+    points: 9,
+    title: "区间和预处理",
     prompt: "多次询问数组 [l, r] 的和，最常用的预处理是？",
     options: ["前缀和", "DFS 树", "并查集", "快速幂"],
     answer: 0
   },
   {
-    id: "s3",
+    id: "q6",
+    type: "short",
+    group: "silver",
+    level: "Silver",
+    skill: "二分答案",
+    points: 12,
+    title: "二分答案的适用条件",
+    prompt: "请解释什么叫“答案具有单调性”，并举一个适合二分答案的 USACO 风格场景。",
+    keywords: ["单调", "可行", "不可行", "二分", "最大", "最小"],
+    minLength: 45,
+    rubric: "优秀答案应说明阈值变化导致可行性一边成立一边不成立，并能举最大最小化或最小最大化场景。"
+  },
+  {
+    id: "q7",
+    type: "code",
     group: "silver",
     level: "Silver",
     skill: "图论基础",
-    points: 9,
-    title: "连通块",
-    prompt: "无向图中统计连通块数量，常用方法是？",
-    options: ["排序每条边", "DFS/BFS 或并查集", "只看节点编号", "动态规划背包"],
-    answer: 1
+    points: 18,
+    title: "Silver 代码题：统计连通块",
+    prompt: "给定一个 N 个点 M 条边的无向图，输出连通块数量。请写出完整程序或核心代码。",
+    problem: {
+      input: "第一行 N M，接下来 M 行每行 a b。1 <= N <= 100000，0 <= M <= 200000。",
+      output: "输出连通块个数。",
+      sampleIn: "5 3\n1 2\n2 3\n4 5",
+      sampleOut: "2"
+    },
+    checks: [
+      { label: "使用邻接表或并查集", patterns: ["vector", "adj", "parent", "union", "find", "ArrayList"], points: 5 },
+      { label: "遍历所有节点", patterns: ["for", "range", "1", "N"], points: 3 },
+      { label: "DFS/BFS 或 union-find 逻辑完整", patterns: ["dfs", "bfs", "queue", "stack", "union", "find"], points: 6 },
+      { label: "考虑大数据复杂度", patterns: ["O(N+M)", "O(M", "复杂度"], points: 4 }
+    ],
+    rubric: "N 和 M 很大，应使用邻接表 DFS/BFS 或并查集，不能用邻接矩阵。"
   },
   {
-    id: "s4",
+    id: "q8",
+    type: "choice",
     group: "silver",
     level: "Silver",
     skill: "双指针",
-    points: 8,
-    title: "滑动窗口",
-    prompt: "处理正数数组中满足和不超过 K 的最长连续区间，哪种思路常见？",
+    points: 9,
+    title: "滑动窗口条件",
+    prompt: "正数数组中寻找和不超过 K 的最长连续区间，常见做法是？",
     options: ["双指针维护窗口", "枚举所有排列", "Floyd 最短路", "高精度乘法"],
     answer: 0
   },
   {
-    id: "s5",
-    group: "silver",
-    level: "Silver",
+    id: "q9",
+    type: "short",
+    group: "gold",
+    level: "Gold",
+    skill: "动态规划",
+    points: 14,
+    title: "DP 状态设计",
+    prompt: "给你一个序列题，要求最优值。请说明你设计 DP 时会如何定义状态、转移、初值和答案位置。",
+    keywords: ["状态", "转移", "初值", "边界", "答案", "复杂度"],
+    minLength: 55,
+    rubric: "优秀答案应清楚区分 dp[i] 的含义、从哪里转移、如何初始化以及最终答案在哪里。"
+  },
+  {
+    id: "q10",
+    type: "code",
+    group: "gold",
+    level: "Gold",
+    skill: "数据结构进阶",
+    points: 22,
+    title: "Gold 代码题：动态区间和",
+    prompt: "维护长度为 N 的数组，支持单点加值与区间求和。请写出树状数组或线段树核心代码。",
+    problem: {
+      input: "N Q，随后 N 个初始值。操作 add i x 表示 a[i]+=x，sum l r 表示查询区间和。",
+      output: "对每个 sum 操作输出答案。N,Q <= 200000。",
+      sampleIn: "5 4\n1 2 3 4 5\nsum 2 4\nadd 3 10\nsum 2 4\nsum 1 5",
+      sampleOut: "9\n19\n25"
+    },
+    checks: [
+      { label: "选择树状数组或线段树", patterns: ["bit", "fenwick", "tree", "segment", "lowbit"], points: 5 },
+      { label: "实现 update/add", patterns: ["update", "add", "+=", "lowbit"], points: 5 },
+      { label: "实现 prefix/query", patterns: ["query", "sum", "prefix", "lowbit"], points: 5 },
+      { label: "区间和由两个前缀相减或线段树查询得到", patterns: ["r", "l - 1", "left", "right"], points: 4 },
+      { label: "复杂度达到 O(log N)", patterns: ["O(log N)", "log"], points: 3 }
+    ],
+    rubric: "N,Q 到 200000，普通数组每次重算会超时。注意 long long。"
+  },
+  {
+    id: "q11",
+    type: "choice",
+    group: "gold",
+    level: "Gold",
     skill: "最短路",
     points: 10,
     title: "非负边权最短路",
@@ -157,196 +174,119 @@ const questions = [
     answer: 1
   },
   {
-    id: "g1",
-    group: "gold",
-    level: "Gold",
-    skill: "动态规划",
-    points: 12,
-    title: "DP 状态设计",
-    prompt: "设计动态规划时，最关键的是先明确什么？",
-    options: [
-      "变量名是否很短",
-      "状态含义、转移来源和边界",
-      "一定要使用递归",
-      "只需要背模板"
-    ],
-    answer: 1
-  },
-  {
-    id: "g2",
-    group: "gold",
-    level: "Gold",
-    skill: "树与图",
-    points: 12,
-    title: "树上信息合并",
-    prompt: "要计算每个节点子树内的信息，常见遍历方式是？",
-    options: ["后序 DFS", "随机访问节点", "只遍历叶子", "按字符串字典序遍历"],
-    answer: 0
-  },
-  {
-    id: "g3",
-    group: "gold",
-    level: "Gold",
-    skill: "数据结构进阶",
-    points: 12,
-    title: "动态区间查询",
-    prompt: "数组有单点修改和区间求和，多次操作时常用什么？",
-    options: ["树状数组或线段树", "普通数组每次重算", "全排列", "暴力递归所有子集"],
-    answer: 0
-  },
-  {
-    id: "g4",
-    group: "gold",
-    level: "Gold",
-    skill: "数学建模",
-    points: 11,
-    title: "取模计数",
-    prompt: "答案很大且题目要求 mod 1e9+7，代码中应如何处理？",
-    options: [
-      "最后一次性用 int 存全部答案",
-      "每次加法或乘法后按需取模，并注意溢出",
-      "忽略取模",
-      "把所有数转成字符串排序"
-    ],
-    answer: 1
-  },
-  {
-    id: "g5",
+    id: "q12",
+    type: "code",
     group: "gold",
     level: "Gold",
     skill: "综合建模",
-    points: 13,
-    title: "从题意到算法",
-    prompt: "遇到长题面时，最有效的建模顺序是？",
-    options: [
-      "先找样例输出规律并硬编码",
-      "提炼输入约束、状态变量、目标函数，再选择算法",
-      "直接写最长的模板",
-      "跳过题意只看标题"
+    points: 24,
+    title: "Gold 代码题：最长可行前缀",
+    prompt: "给定 N 个任务耗时和总时间 T，求最长连续区间，使区间总耗时不超过 T。所有耗时为正数。请写出 O(N) 或 O(N log N) 解法。",
+    problem: {
+      input: "第一行 N T，第二行 N 个正整数。N <= 200000。",
+      output: "输出最长连续区间长度。",
+      sampleIn: "7 8\n2 1 3 4 2 1 5",
+      sampleOut: "4"
+    },
+    checks: [
+      { label: "识别正数数组可用双指针", patterns: ["two", "双指针", "left", "right", "l", "r"], points: 5 },
+      { label: "维护窗口和", patterns: ["sum", "cur", "window"], points: 5 },
+      { label: "超出 T 时移动左端点", patterns: ["while", "> T", ">T", "left++", "l++"], points: 6 },
+      { label: "更新最大长度", patterns: ["max", "ans", "right - left + 1", "r-l+1"], points: 5 },
+      { label: "复杂度说明", patterns: ["O(N)", "复杂度"], points: 3 }
     ],
-    answer: 1
+    rubric: "因为所有耗时为正数，窗口右端扩展后若超时，左端单调右移即可。"
   }
 ];
 
+const TOTAL_SECONDS = 60 * 60;
+
 const state = {
   started: false,
-  activeFilter: "all",
+  submitted: false,
+  currentIndex: 0,
   answers: {},
-  secondsLeft: 45 * 60,
+  secondsLeft: TOTAL_SECONDS,
   timerId: null
 };
 
 const els = {
-  list: document.querySelector("#questionList"),
-  template: document.querySelector("#questionTemplate"),
+  intro: document.querySelector("#intro"),
+  questionStage: document.querySelector("#questionStage"),
+  questionMap: document.querySelector("#questionMap"),
   timeLeft: document.querySelector("#timeLeft"),
   progressFill: document.querySelector("#progressFill"),
   progressText: document.querySelector("#progressText"),
   startBtn: document.querySelector("#startBtn"),
+  introStartBtn: document.querySelector("#introStartBtn"),
   resetBtn: document.querySelector("#resetBtn"),
-  report: document.querySelector("#report"),
   levelPreview: document.querySelector("#levelPreview"),
+  questionKicker: document.querySelector("#questionKicker"),
+  questionTitle: document.querySelector("#questionTitle"),
+  questionType: document.querySelector("#questionType"),
+  questionBadge: document.querySelector("#questionBadge"),
+  questionPoints: document.querySelector("#questionPoints"),
+  questionPrompt: document.querySelector("#questionPrompt"),
+  problemBlock: document.querySelector("#problemBlock"),
+  answerArea: document.querySelector("#answerArea"),
+  feedback: document.querySelector("#feedback"),
+  prevBtn: document.querySelector("#prevBtn"),
+  saveBtn: document.querySelector("#saveBtn"),
+  nextBtn: document.querySelector("#nextBtn"),
+  submitBtn: document.querySelector("#submitBtn"),
+  report: document.querySelector("#report"),
   studentName: document.querySelector("#studentName"),
   studentLanguage: document.querySelector("#studentLanguage"),
   studentGoal: document.querySelector("#studentGoal"),
   reportTitle: document.querySelector("#reportTitle"),
   finalScore: document.querySelector("#finalScore"),
   recommendedLevel: document.querySelector("#recommendedLevel"),
-  accuracy: document.querySelector("#accuracy"),
+  completionRate: document.querySelector("#completionRate"),
   skillBars: document.querySelector("#skillBars"),
   diagnosisList: document.querySelector("#diagnosisList"),
+  codeReviewList: document.querySelector("#codeReviewList"),
   studyPlan: document.querySelector("#studyPlan"),
   printBtn: document.querySelector("#printBtn")
 };
 
-function renderQuestions() {
-  els.list.innerHTML = "";
-  const visible = questions.filter((question) => {
-    return state.activeFilter === "all" || question.group === state.activeFilter;
-  });
-
-  visible.forEach((question) => {
-    const node = els.template.content.firstElementChild.cloneNode(true);
-    node.dataset.id = question.id;
-    node.classList.toggle("locked", !state.started);
-    node.querySelector(".badge").textContent = `${question.level} · ${question.skill}`;
-    node.querySelector(".points").textContent = `${question.points} 分`;
-    node.querySelector("h3").textContent = question.title;
-    node.querySelector(".prompt").textContent = question.prompt;
-
-    const options = node.querySelector(".options");
-    question.options.forEach((option, index) => {
-      const label = document.createElement("label");
-      label.className = "option";
-      const radio = document.createElement("input");
-      radio.type = "radio";
-      radio.name = question.id;
-      radio.value = String(index);
-      radio.disabled = !state.started;
-      radio.checked = state.answers[question.id] === index;
-      radio.addEventListener("change", () => {
-        state.answers[question.id] = index;
-        updateProgress();
-        renderReport();
-      });
-      const text = document.createElement("span");
-      text.textContent = option;
-      label.append(radio, text);
-      options.append(label);
-    });
-
-    els.list.append(node);
-  });
-}
-
-function updateProgress() {
-  const answered = Object.keys(state.answers).length;
-  const ratio = answered / questions.length;
-  els.progressFill.style.width = `${Math.round(ratio * 100)}%`;
-  els.progressText.textContent = `${answered} / ${questions.length} 已完成`;
-
-  if (!state.started) {
-    els.levelPreview.textContent = "等待开始";
-    return;
-  }
-
-  const report = calculateReport();
-  els.levelPreview.textContent = `当前估计：${report.level}`;
-}
-
 function startAssessment() {
   if (state.started) return;
   state.started = true;
+  state.submitted = false;
+  els.intro.hidden = true;
+  els.report.hidden = true;
+  els.questionStage.hidden = false;
   els.startBtn.textContent = "测评进行中";
   els.startBtn.disabled = true;
-  tickTimer();
   state.timerId = window.setInterval(tickTimer, 1000);
-  renderQuestions();
+  tickTimer();
+  renderCurrentQuestion();
   updateProgress();
 }
 
 function resetAssessment() {
-  state.started = false;
-  state.answers = {};
-  state.secondsLeft = 45 * 60;
   window.clearInterval(state.timerId);
+  state.started = false;
+  state.submitted = false;
+  state.currentIndex = 0;
+  state.answers = {};
+  state.secondsLeft = TOTAL_SECONDS;
   state.timerId = null;
   els.startBtn.textContent = "开始测评";
   els.startBtn.disabled = false;
+  els.intro.hidden = false;
+  els.questionStage.hidden = true;
   els.report.hidden = true;
-  renderQuestions();
-  updateProgress();
+  els.feedback.hidden = true;
   updateTimerText();
+  updateProgress();
+  renderQuestionMap();
 }
 
 function tickTimer() {
   updateTimerText();
   if (state.secondsLeft <= 0) {
-    window.clearInterval(state.timerId);
-    state.timerId = null;
-    state.started = false;
-    renderQuestions();
-    renderReport(true);
+    submitAssessment(true);
     return;
   }
   state.secondsLeft -= 1;
@@ -358,75 +298,291 @@ function updateTimerText() {
   els.timeLeft.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 }
 
+function renderCurrentQuestion() {
+  const question = questions[state.currentIndex];
+  els.questionKicker.textContent = `Question ${state.currentIndex + 1} / ${questions.length}`;
+  els.questionTitle.textContent = question.title;
+  els.questionType.textContent = getTypeLabel(question.type);
+  els.questionBadge.textContent = `${question.level} · ${question.skill}`;
+  els.questionPoints.textContent = `${question.points} 分`;
+  els.questionPrompt.textContent = question.prompt;
+  els.answerArea.innerHTML = "";
+  els.feedback.hidden = true;
+
+  renderProblemBlock(question);
+  if (question.type === "choice") renderChoice(question);
+  if (question.type === "short") renderShortAnswer(question);
+  if (question.type === "code") renderCodeAnswer(question);
+
+  els.prevBtn.disabled = state.currentIndex === 0;
+  els.nextBtn.disabled = state.currentIndex === questions.length - 1;
+  els.submitBtn.hidden = state.currentIndex !== questions.length - 1;
+  renderQuestionMap();
+}
+
+function renderProblemBlock(question) {
+  if (!question.problem) {
+    els.problemBlock.hidden = true;
+    els.problemBlock.innerHTML = "";
+    return;
+  }
+
+  els.problemBlock.hidden = false;
+  els.problemBlock.innerHTML = `
+    <dl>
+      <div><dt>输入</dt><dd>${escapeHtml(question.problem.input)}</dd></div>
+      <div><dt>输出</dt><dd>${escapeHtml(question.problem.output)}</dd></div>
+    </dl>
+    <div class="samples">
+      <div><span>样例输入</span><pre>${escapeHtml(question.problem.sampleIn)}</pre></div>
+      <div><span>样例输出</span><pre>${escapeHtml(question.problem.sampleOut)}</pre></div>
+    </div>
+  `;
+}
+
+function renderChoice(question) {
+  const options = document.createElement("div");
+  options.className = "options";
+  question.options.forEach((option, index) => {
+    const label = document.createElement("label");
+    label.className = "option";
+    const radio = document.createElement("input");
+    radio.type = "radio";
+    radio.name = question.id;
+    radio.value = String(index);
+    radio.checked = state.answers[question.id] === index;
+    radio.addEventListener("change", () => {
+      state.answers[question.id] = index;
+      showSavedFeedback(question);
+      updateProgress();
+    });
+    const text = document.createElement("span");
+    text.textContent = option;
+    label.append(radio, text);
+    options.append(label);
+  });
+  els.answerArea.append(options);
+}
+
+function renderShortAnswer(question) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "written-answer";
+  wrapper.innerHTML = `
+    <textarea id="currentAnswer" rows="8" placeholder="写下你的思路。请尽量说明为什么这样做，而不只是给结论。">${escapeHtml(state.answers[question.id] || "")}</textarea>
+    <p>${question.rubric}</p>
+  `;
+  els.answerArea.append(wrapper);
+}
+
+function renderCodeAnswer(question) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "code-answer";
+  wrapper.innerHTML = `
+    <textarea id="currentAnswer" rows="18" spellcheck="false" placeholder="在这里写代码。可以写完整程序，也可以写核心函数，但要包含复杂度说明。">${escapeHtml(state.answers[question.id] || "")}</textarea>
+    <div class="rubric">
+      <strong>自动初评关注点</strong>
+      <ul>${question.checks.map((check) => `<li>${check.label}</li>`).join("")}</ul>
+      <p>${question.rubric}</p>
+    </div>
+  `;
+  els.answerArea.append(wrapper);
+}
+
+function saveCurrentAnswer() {
+  const question = questions[state.currentIndex];
+  if (question.type !== "choice") {
+    const input = document.querySelector("#currentAnswer");
+    state.answers[question.id] = input ? input.value.trim() : "";
+  }
+  showSavedFeedback(question);
+  updateProgress();
+}
+
+function showSavedFeedback(question) {
+  const result = scoreQuestion(question);
+  els.feedback.hidden = false;
+  els.feedback.className = `feedback ${result.earned >= question.points * 0.7 ? "good" : "warn"}`;
+  if (question.type === "choice") {
+    els.feedback.textContent = "已保存。提交后会计入诊断结果。";
+    return;
+  }
+  els.feedback.textContent = `已保存，自动初评 ${result.earned} / ${question.points} 分。${result.note}`;
+}
+
+function goToQuestion(index) {
+  saveCurrentAnswer();
+  state.currentIndex = Math.max(0, Math.min(index, questions.length - 1));
+  renderCurrentQuestion();
+}
+
+function updateProgress() {
+  const answered = questions.filter((question) => hasAnswer(question)).length;
+  const ratio = answered / questions.length;
+  els.progressFill.style.width = `${Math.round(ratio * 100)}%`;
+  els.progressText.textContent = `${answered} / ${questions.length} 已完成`;
+
+  if (!state.started && !state.submitted) {
+    els.levelPreview.textContent = "等待开始";
+  } else {
+    const report = calculateReport();
+    els.levelPreview.textContent = `当前估计：${report.level}`;
+  }
+  renderQuestionMap();
+}
+
+function renderQuestionMap() {
+  els.questionMap.innerHTML = "";
+  questions.forEach((question, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = index + 1;
+    button.className = "map-dot";
+    button.dataset.level = question.group;
+    button.classList.toggle("active", index === state.currentIndex && state.started);
+    button.classList.toggle("done", hasAnswer(question));
+    button.title = `${question.level} · ${getTypeLabel(question.type)} · ${question.skill}`;
+    button.addEventListener("click", () => {
+      if (!state.started || state.submitted) return;
+      goToQuestion(index);
+    });
+    els.questionMap.append(button);
+  });
+}
+
+function hasAnswer(question) {
+  const value = state.answers[question.id];
+  if (question.type === "choice") return Number.isInteger(value);
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+function scoreQuestion(question) {
+  const value = state.answers[question.id];
+  if (question.type === "choice") {
+    return {
+      earned: value === question.answer ? question.points : 0,
+      possible: question.points,
+      needsReview: false,
+      note: value === question.answer ? "客观题正确。" : "客观题错误。"
+    };
+  }
+
+  if (question.type === "short") {
+    const text = normalizeText(value || "");
+    const hits = question.keywords.filter((keyword) => text.includes(keyword.toLowerCase())).length;
+    const lengthScore = text.length >= question.minLength ? 0.35 : Math.min(0.35, text.length / question.minLength * 0.35);
+    const keywordScore = Math.min(0.65, hits / Math.max(1, question.keywords.length - 1) * 0.65);
+    const earned = Math.round(question.points * Math.min(1, lengthScore + keywordScore));
+    return {
+      earned,
+      possible: question.points,
+      needsReview: true,
+      note: `命中 ${hits} 个关键点，建议老师复核表达质量。`
+    };
+  }
+
+  const text = normalizeText(value || "");
+  let earned = 0;
+  const matched = [];
+  question.checks.forEach((check) => {
+    const ok = check.patterns.some((pattern) => text.includes(pattern.toLowerCase()));
+    if (ok) {
+      earned += check.points;
+      matched.push(check.label);
+    }
+  });
+  return {
+    earned,
+    possible: question.points,
+    needsReview: true,
+    note: matched.length ? `命中：${matched.join("、")}。` : "未命中关键实现线索。",
+    matched
+  };
+}
+
 function calculateReport() {
   let earned = 0;
-  let total = 0;
-  let correct = 0;
+  let possible = 0;
   const skillMap = new Map();
   const levelMap = new Map();
+  const typeMap = new Map();
+  const reviewItems = [];
 
   questions.forEach((question) => {
-    total += question.points;
-    const isCorrect = state.answers[question.id] === question.answer;
-    if (isCorrect) {
-      earned += question.points;
-      correct += 1;
+    const result = scoreQuestion(question);
+    possible += result.possible;
+    earned += result.earned;
+    addBucket(skillMap, question.skill, result.earned, result.possible);
+    addBucket(levelMap, question.group, result.earned, result.possible);
+    addBucket(typeMap, question.type, result.earned, result.possible);
+    if (question.type === "code") {
+      reviewItems.push({ question, result, answer: state.answers[question.id] || "" });
     }
-
-    addBucket(skillMap, question.skill, question.points, isCorrect);
-    addBucket(levelMap, question.group, question.points, isCorrect);
   });
 
-  const score = Math.round((earned / total) * 100);
-  const levelScores = Object.fromEntries(
-    Array.from(levelMap.entries()).map(([key, value]) => [key, value.possible ? value.earned / value.possible : 0])
-  );
+  const score = Math.round((earned / possible) * 100);
+  const levelScores = toPercentMap(levelMap);
+  const typeScores = toPercentMap(typeMap);
 
   let level = "Bronze 预备班";
-  if (score >= 78 && levelScores.gold >= 0.55 && levelScores.silver >= 0.68) {
+  if (score >= 78 && levelScores.gold >= 0.58 && typeScores.code >= 0.55) {
     level = "Gold 强化班";
-  } else if (score >= 62 && levelScores.silver >= 0.58) {
+  } else if (score >= 62 && levelScores.silver >= 0.58 && typeScores.code >= 0.4) {
     level = "Silver 提升班";
-  } else if (score >= 42 && levelScores.bronze >= 0.55) {
+  } else if (score >= 42 && levelScores.bronze >= 0.5) {
     level = "Bronze 冲刺班";
   }
 
   return {
     score,
-    correct,
-    totalQuestions: questions.length,
     level,
+    levelScores,
+    typeScores,
+    reviewItems,
+    completed: questions.filter((question) => hasAnswer(question)).length,
     skills: Array.from(skillMap.entries()).map(([skill, value]) => ({
       skill,
       percent: value.possible ? Math.round((value.earned / value.possible) * 100) : 0
-    })),
-    levelScores
+    }))
   };
 }
 
-function addBucket(map, key, points, isCorrect) {
+function addBucket(map, key, earned, possible) {
   if (!map.has(key)) {
     map.set(key, { earned: 0, possible: 0 });
   }
   const bucket = map.get(key);
-  bucket.possible += points;
-  if (isCorrect) bucket.earned += points;
+  bucket.earned += earned;
+  bucket.possible += possible;
+}
+
+function toPercentMap(map) {
+  return Object.fromEntries(
+    Array.from(map.entries()).map(([key, value]) => [key, value.possible ? value.earned / value.possible : 0])
+  );
+}
+
+function submitAssessment(timeExpired = false) {
+  if (state.submitted) return;
+  saveCurrentAnswer();
+  state.started = false;
+  state.submitted = true;
+  window.clearInterval(state.timerId);
+  state.timerId = null;
+  els.startBtn.textContent = "测评已提交";
+  els.questionStage.hidden = true;
+  els.intro.hidden = true;
+  renderReport(timeExpired);
+  updateProgress();
 }
 
 function renderReport(timeExpired = false) {
-  const answered = Object.keys(state.answers).length;
-  if (answered === 0 && !timeExpired) {
-    els.report.hidden = true;
-    return;
-  }
-
   const report = calculateReport();
   const name = els.studentName.value.trim() || "新学员";
   els.report.hidden = false;
-  els.reportTitle.textContent = `${name} 的测评报告`;
+  els.reportTitle.textContent = `${name} 的测评报告${timeExpired ? "（时间到）" : ""}`;
   els.finalScore.textContent = String(report.score);
   els.recommendedLevel.textContent = report.level;
-  els.accuracy.textContent = `${Math.round((report.correct / report.totalQuestions) * 100)}%`;
+  els.completionRate.textContent = `${Math.round((report.completed / questions.length) * 100)}%`;
 
   els.skillBars.innerHTML = "";
   report.skills
@@ -442,33 +598,45 @@ function renderReport(timeExpired = false) {
     });
 
   renderDiagnosis(report);
+  renderCodeReview(report.reviewItems);
   renderStudyPlan(report);
 }
 
 function renderDiagnosis(report) {
   els.diagnosisList.innerHTML = "";
-  const weak = report.skills.filter((item) => item.percent < 55).slice(0, 3);
+  const weak = report.skills.filter((item) => item.percent < 55).slice(0, 4);
   const strong = report.skills.filter((item) => item.percent >= 75).slice(0, 3);
   const items = [];
 
-  items.push(`推荐从「${report.level}」开始，当前目标为「${els.studentGoal.value}」，主要语言为 ${els.studentLanguage.value}。`);
-  if (strong.length) {
-    items.push(`优势能力：${strong.map((item) => item.skill).join("、")}，可以安排更高密度的综合题。`);
-  }
-  if (weak.length) {
-    items.push(`优先补强：${weak.map((item) => item.skill).join("、")}，这些短板会直接影响比赛题稳定性。`);
-  }
-  if (report.levelScores.gold >= 0.5 && report.levelScores.silver < 0.6) {
-    items.push("能理解部分高阶概念，但 Silver 基础还不够稳，建议先补齐图论、二分和前缀和。");
-  }
-  if (!weak.length) {
-    items.push("各模块没有明显断层，可以进入限时套题训练，用复盘提升速度和代码准确率。");
-  }
+  items.push(`推荐从「${report.level}」开始；当前目标为「${els.studentGoal.value}」，主要语言为 ${els.studentLanguage.value}。`);
+  items.push(`代码题自动初评得分率约为 ${Math.round((report.typeScores.code || 0) * 100)}%，该项最能反映真实上机能力。`);
+  if (strong.length) items.push(`优势能力：${strong.map((item) => item.skill).join("、")}。`);
+  if (weak.length) items.push(`优先补强：${weak.map((item) => item.skill).join("、")}。`);
+  if ((report.typeScores.short || 0) < 0.55) items.push("算法表达偏弱，建议要求学员每题先写思路、复杂度和边界样例。");
+  if ((report.typeScores.code || 0) < 0.45) items.push("代码实现稳定性不足，建议暂缓高阶专题，先补输入输出、数据结构和调试流程。");
 
   items.forEach((item) => {
     const li = document.createElement("li");
     li.textContent = item;
     els.diagnosisList.append(li);
+  });
+}
+
+function renderCodeReview(items) {
+  els.codeReviewList.innerHTML = "";
+  items.forEach(({ question, result, answer }) => {
+    const article = document.createElement("article");
+    article.className = "review-item";
+    const preview = answer.trim() ? answer.trim().slice(0, 420) : "未作答";
+    article.innerHTML = `
+      <div>
+        <strong>${question.title}</strong>
+        <span>${result.earned} / ${question.points} 分 · ${question.level}</span>
+      </div>
+      <p>${result.note}</p>
+      <pre>${escapeHtml(preview)}</pre>
+    `;
+    els.codeReviewList.append(article);
   });
 }
 
@@ -478,23 +646,23 @@ function renderStudyPlan(report) {
   const plan = [];
 
   if (report.level.includes("预备")) {
-    plan.push("第 1 周：变量、循环、数组、字符串和输入输出训练，每天 3 到 5 道短模拟题。");
-    plan.push("第 2 周：枚举、排序、频次统计和边界条件专项，建立提交前自测清单。");
+    plan.push("第 1 周：变量、循环、数组、字符串与输入输出，每次课后完成 3 道短代码题。");
+    plan.push("第 2 周：Bronze 模拟与枚举，训练手写状态表和边界样例。");
   } else if (report.level.includes("Bronze")) {
-    plan.push("第 1 周：Bronze 模拟、枚举、排序题混合训练，要求每题写出状态变化表。");
-    plan.push("第 2 周：加入简单贪心和前缀和，为 Silver 题型做迁移准备。");
+    plan.push("第 1 周：排序、频次统计、双重枚举与模拟题混合训练。");
+    plan.push("第 2 周：加入前缀和、简单贪心和短代码限时练习。");
   } else if (report.level.includes("Silver")) {
-    plan.push("第 1 周：二分答案、前缀和、双指针专项，每个专题完成 6 到 8 道题。");
-    plan.push("第 2 周：BFS/DFS、并查集、Dijkstra 入门，开始做 90 分钟限时训练。");
+    plan.push("第 1 周：二分答案、前缀和、双指针，每个专题完成 5 到 8 道题。");
+    plan.push("第 2 周：DFS/BFS、并查集、Dijkstra 入门，并安排 90 分钟限时套题。");
   } else {
-    plan.push("第 1 周：树形 DP、线段树、最短路变形题，强调状态定义和复杂度证明。");
-    plan.push("第 2 周：Gold 套题复盘，记录每题卡点并沉淀个人模板。");
+    plan.push("第 1 周：树状数组、线段树、树形 DP 和最短路变形题。");
+    plan.push("第 2 周：Gold 套题复盘，要求写出状态定义、复杂度证明和错因总结。");
   }
 
   if (weakSkills.length) {
-    plan.push(`每次课后额外安排「${weakSkills.slice(0, 3).join("、")}」错题回炉，直到单项正确率超过 70%。`);
+    plan.push(`重点回炉「${weakSkills.slice(0, 4).join("、")}」，直到单项得分率超过 70%。`);
   }
-  plan.push("每两周重新测评一次，比较综合分、单项分和限时完成率，决定是否升班。");
+  plan.push("代码题建议由老师复核一次，尤其检查边界、复杂度、变量初始化和样例外小数据。");
 
   plan.forEach((item) => {
     const li = document.createElement("li");
@@ -503,19 +671,35 @@ function renderStudyPlan(report) {
   });
 }
 
-document.querySelectorAll(".tab").forEach((tab) => {
-  tab.addEventListener("click", () => {
-    document.querySelectorAll(".tab").forEach((item) => item.classList.remove("active"));
-    tab.classList.add("active");
-    state.activeFilter = tab.dataset.filter;
-    renderQuestions();
-  });
-});
+function getTypeLabel(type) {
+  return {
+    choice: "选择题",
+    short: "简答题",
+    code: "代码题"
+  }[type];
+}
+
+function normalizeText(value) {
+  return String(value || "").toLowerCase().replace(/\s+/g, " ");
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
 
 els.startBtn.addEventListener("click", startAssessment);
+els.introStartBtn.addEventListener("click", startAssessment);
 els.resetBtn.addEventListener("click", resetAssessment);
+els.saveBtn.addEventListener("click", saveCurrentAnswer);
+els.prevBtn.addEventListener("click", () => goToQuestion(state.currentIndex - 1));
+els.nextBtn.addEventListener("click", () => goToQuestion(state.currentIndex + 1));
+els.submitBtn.addEventListener("click", () => submitAssessment(false));
 els.printBtn.addEventListener("click", () => window.print());
 
-renderQuestions();
+renderQuestionMap();
 updateProgress();
 updateTimerText();

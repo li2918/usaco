@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>USACO 新学员能力评估</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="测评导航">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">U</span>
+          <div>
+            <h1>USACO 能力评估</h1>
+            <p>新学员入班诊断</p>
+          </div>
+        </div>
+
+        <section class="panel student-panel" aria-labelledby="student-title">
+          <h2 id="student-title">学员信息</h2>
+          <label>
+            姓名
+            <input id="studentName" type="text" placeholder="例如：Alex">
+          </label>
+          <label>
+            当前编程语言
+            <select id="studentLanguage">
+              <option value="C++">C++</option>
+              <option value="Python">Python</option>
+              <option value="Java">Java</option>
+              <option value="未确定">未确定</option>
+            </select>
+          </label>
+          <label>
+            目标
+            <select id="studentGoal">
+              <option value="Bronze 入门">Bronze 入门</option>
+              <option value="Bronze 冲 Silver">Bronze 冲 Silver</option>
+              <option value="Silver 冲 Gold">Silver 冲 Gold</option>
+              <option value="Gold 强化">Gold 强化</option>
+            </select>
+          </label>
+        </section>
+
+        <section class="panel progress-panel" aria-labelledby="progress-title">
+          <h2 id="progress-title">测评进度</h2>
+          <div class="timer">
+            <span>剩余时间</span>
+            <strong id="timeLeft">45:00</strong>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div id="progressFill"></div>
+          </div>
+          <p id="progressText">0 / 18 已完成</p>
+          <button id="startBtn" class="primary-btn" type="button">开始测评</button>
+          <button id="resetBtn" class="secondary-btn" type="button">重新开始</button>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Adaptive Diagnostic</p>
+            <h2>从基础实现到算法建模的分层测评</h2>
+          </div>
+          <div class="status-pill" id="levelPreview">等待开始</div>
+        </header>
+
+        <nav class="tabs" aria-label="题目分组">
+          <button class="tab active" type="button" data-filter="all">全部</button>
+          <button class="tab" type="button" data-filter="foundation">基础</button>
+          <button class="tab" type="button" data-filter="bronze">Bronze</button>
+          <button class="tab" type="button" data-filter="silver">Silver</button>
+          <button class="tab" type="button" data-filter="gold">Gold</button>
+        </nav>
+
+        <section id="questionList" class="question-list" aria-live="polite"></section>
+
+        <section id="report" class="report" aria-live="polite" hidden>
+          <div class="report-header">
+            <div>
+              <p class="eyebrow">Assessment Report</p>
+              <h2 id="reportTitle">测评报告</h2>
+            </div>
+            <button id="printBtn" class="secondary-btn" type="button">打印报告</button>
+          </div>
+          <div class="score-grid">
+            <article>
+              <span>综合分</span>
+              <strong id="finalScore">0</strong>
+            </article>
+            <article>
+              <span>推荐班型</span>
+              <strong id="recommendedLevel">待评估</strong>
+            </article>
+            <article>
+              <span>准确率</span>
+              <strong id="accuracy">0%</strong>
+            </article>
+          </div>
+          <div class="report-columns">
+            <div class="panel">
+              <h3>能力雷达</h3>
+              <div id="skillBars" class="skill-bars"></div>
+            </div>
+            <div class="panel">
+              <h3>诊断结论</h3>
+              <ul id="diagnosisList" class="diagnosis-list"></ul>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>学习路径建议</h3>
+            <ol id="studyPlan" class="study-plan"></ol>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <template id="questionTemplate">
+      <article class="question-card">
+        <div class="question-meta">
+          <span class="badge"></span>
+          <span class="points"></span>
+        </div>
+        <h3></h3>
+        <p class="prompt"></p>
+        <div class="options"></div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>

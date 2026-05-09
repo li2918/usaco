@@ -81,6 +81,7 @@ button:disabled {
 .topbar h2,
 .topbar p,
 .intro-panel h2,
+.intro-panel h3,
 .intro-panel p,
 .question-card p,
 .stage-head h2 {
@@ -95,6 +96,13 @@ button:disabled {
   margin-top: 4px;
   color: #cbd5e1;
   font-size: 13px;
+  line-height: 1.45;
+}
+
+.subtitle {
+  max-width: 760px;
+  margin-top: 6px !important;
+  color: var(--muted);
   line-height: 1.45;
 }
 
@@ -308,6 +316,14 @@ select option {
 .intro-panel h2 {
   margin-top: 5px;
   font-size: 28px;
+}
+
+.intro-panel h3 {
+  margin-top: 6px;
+  color: #344054;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .intro-panel p {

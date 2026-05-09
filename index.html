@@ -3,62 +3,64 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>USACO 新学员能力评估</title>
+    <title>USACO 新学员能力评估 / New Student Assessment</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <main class="app-shell">
-      <aside class="sidebar" aria-label="测评控制台">
+      <aside class="sidebar" aria-label="测评控制台 / Assessment control panel">
         <div class="brand">
           <span class="brand-mark" aria-hidden="true">U</span>
           <div>
             <h1>USACO 能力评估</h1>
+            <p>Ability Assessment</p>
             <p>分层诊断 · 单题作答 · 代码题复核</p>
+            <p>Level diagnosis · One question at a time · Code review</p>
           </div>
         </div>
 
         <section class="panel student-panel" aria-labelledby="student-title">
-          <h2 id="student-title">学员信息</h2>
+          <h2 id="student-title">学员信息 / Student Info</h2>
           <label>
-            姓名
-            <input id="studentName" type="text" placeholder="例如：Alex">
+            姓名 / Name
+            <input id="studentName" type="text" placeholder="例如 / Example: Alex">
           </label>
           <label>
-            当前编程语言
+            当前编程语言 / Current Programming Language
             <select id="studentLanguage">
               <option value="C++">C++</option>
               <option value="Python">Python</option>
               <option value="Java">Java</option>
-              <option value="未确定">未确定</option>
+              <option value="未确定 / Not sure">未确定 / Not sure</option>
             </select>
           </label>
           <label>
-            目标
+            目标 / Goal
             <select id="studentGoal">
-              <option value="Bronze 入门">Bronze 入门</option>
-              <option value="Bronze 冲 Silver">Bronze 冲 Silver</option>
-              <option value="Silver 冲 Gold">Silver 冲 Gold</option>
-              <option value="Gold 强化">Gold 强化</option>
+              <option value="Bronze 入门 / Bronze Starter">Bronze 入门 / Bronze Starter</option>
+              <option value="Bronze 冲 Silver / Bronze to Silver">Bronze 冲 Silver / Bronze to Silver</option>
+              <option value="Silver 冲 Gold / Silver to Gold">Silver 冲 Gold / Silver to Gold</option>
+              <option value="Gold 强化 / Gold Strengthening">Gold 强化 / Gold Strengthening</option>
             </select>
           </label>
         </section>
 
         <section class="panel progress-panel" aria-labelledby="progress-title">
-          <h2 id="progress-title">测评进度</h2>
+          <h2 id="progress-title">测评进度 / Progress</h2>
           <div class="timer">
-            <span>剩余时间</span>
+            <span>剩余时间 / Time Left</span>
             <strong id="timeLeft">60:00</strong>
           </div>
           <div class="progress-track" aria-hidden="true">
             <div id="progressFill"></div>
           </div>
-          <p id="progressText">0 / 12 已完成</p>
-          <button id="startBtn" class="primary-btn" type="button">开始测评</button>
-          <button id="resetBtn" class="secondary-btn" type="button">重新开始</button>
+          <p id="progressText">0 / 12 已完成 / completed</p>
+          <button id="startBtn" class="primary-btn" type="button">开始测评 / Start</button>
+          <button id="resetBtn" class="secondary-btn" type="button">重新开始 / Restart</button>
         </section>
 
         <section class="panel question-map" aria-labelledby="map-title">
-          <h2 id="map-title">题目导航</h2>
+          <h2 id="map-title">题目导航 / Questions</h2>
           <div id="questionMap" class="map-grid"></div>
         </section>
       </aside>
@@ -68,20 +70,26 @@
           <div>
             <p class="eyebrow">Adaptive Diagnostic</p>
             <h2>一题一题完成，逐步定位真实 USACO 能力</h2>
+            <p class="subtitle">Complete one question at a time to identify the student's real USACO level.</p>
           </div>
-          <div class="status-pill" id="levelPreview">等待开始</div>
+          <div class="status-pill" id="levelPreview">等待开始 / Waiting</div>
         </header>
 
         <section id="intro" class="intro-panel">
           <div>
             <p class="eyebrow">Assessment Flow</p>
             <h2>从基础读题到代码实现的完整入班测评</h2>
+            <h3>Complete placement assessment from reading basics to code implementation</h3>
             <p>
               测评共 12 题，包含概念题、简答题和代码题。系统会自动初评客观题与代码结构，
               并在报告中标出需要老师人工复核的高阶题。
             </p>
+            <p>
+              The assessment has 12 questions, including concepts, short answers, and coding tasks.
+              The system gives an initial score and flags advanced answers for teacher review.
+            </p>
           </div>
-          <button id="introStartBtn" class="primary-action" type="button">开始第一题</button>
+          <button id="introStartBtn" class="primary-action" type="button">开始第一题 / Start Q1</button>
         </section>
 
         <section id="questionStage" class="question-stage" aria-live="polite" hidden>
@@ -105,11 +113,11 @@
 
           <div id="feedback" class="feedback" hidden></div>
 
-          <nav class="stage-actions" aria-label="题目操作">
-            <button id="prevBtn" class="secondary-btn" type="button">上一题</button>
-            <button id="saveBtn" class="primary-action" type="button">保存答案</button>
-            <button id="nextBtn" class="secondary-btn" type="button">下一题</button>
-            <button id="submitBtn" class="finish-btn" type="button">提交测评</button>
+          <nav class="stage-actions" aria-label="题目操作 / Question actions">
+            <button id="prevBtn" class="secondary-btn" type="button">上一题 / Previous</button>
+            <button id="saveBtn" class="primary-action" type="button">保存答案 / Save</button>
+            <button id="nextBtn" class="secondary-btn" type="button">下一题 / Next</button>
+            <button id="submitBtn" class="finish-btn" type="button">提交测评 / Submit</button>
           </nav>
         </section>
 
@@ -117,40 +125,40 @@
           <div class="report-header">
             <div>
               <p class="eyebrow">Assessment Report</p>
-              <h2 id="reportTitle">测评报告</h2>
+              <h2 id="reportTitle">测评报告 / Assessment Report</h2>
             </div>
-            <button id="printBtn" class="secondary-btn" type="button">打印报告</button>
+            <button id="printBtn" class="secondary-btn" type="button">打印报告 / Print</button>
           </div>
           <div class="score-grid">
             <article>
-              <span>综合分</span>
+              <span>综合分 / Overall Score</span>
               <strong id="finalScore">0</strong>
             </article>
             <article>
-              <span>推荐班型</span>
-              <strong id="recommendedLevel">待评估</strong>
+              <span>推荐班型 / Recommended Class</span>
+              <strong id="recommendedLevel">待评估 / Pending</strong>
             </article>
             <article>
-              <span>完成度</span>
+              <span>完成度 / Completion</span>
               <strong id="completionRate">0%</strong>
             </article>
           </div>
           <div class="report-columns">
             <div class="panel">
-              <h3>能力雷达</h3>
+              <h3>能力雷达 / Skills</h3>
               <div id="skillBars" class="skill-bars"></div>
             </div>
             <div class="panel">
-              <h3>诊断结论</h3>
+              <h3>诊断结论 / Diagnosis</h3>
               <ul id="diagnosisList" class="diagnosis-list"></ul>
             </div>
           </div>
           <div class="panel">
-            <h3>代码题复核清单</h3>
+            <h3>代码题复核清单 / Code Review Checklist</h3>
             <div id="codeReviewList" class="review-list"></div>
           </div>
           <div class="panel">
-            <h3>学习路径建议</h3>
+            <h3>学习路径建议 / Study Plan</h3>
             <ol id="studyPlan" class="study-plan"></ol>
           </div>
         </section>

@@ -359,8 +359,6 @@ const uiText = {
     submitted: "测评已提交",
     reset: "重新开始",
     mapTitle: "题目导航",
-    waiting: "等待开始",
-    estimate: "当前估计",
     introEyebrow: "Assessment Flow",
     introTitle: "从基础读题到代码实现的完整入班测评",
     introCopy: "测评共 12 题，包含概念题、简答题和代码题。系统会自动初评客观题与代码结构，并在报告中标出需要老师人工复核的高阶题。",
@@ -429,8 +427,6 @@ const uiText = {
     submitted: "Submitted",
     reset: "Restart",
     mapTitle: "Questions",
-    waiting: "Waiting",
-    estimate: "Estimate",
     introEyebrow: "Assessment Flow",
     introTitle: "Complete placement assessment from reading basics to code implementation",
     introCopy: "The assessment has 12 questions, including concepts, short answers, and coding tasks. The system gives an initial score for objective answers and code structure, then flags advanced answers for teacher review.",
@@ -499,7 +495,6 @@ const els = {
   progressText: document.querySelector("#progressText"),
   startBtn: document.querySelector("#startBtn"),
   resetBtn: document.querySelector("#resetBtn"),
-  levelPreview: document.querySelector("#levelPreview"),
   questionKicker: document.querySelector("#questionKicker"),
   questionTitle: document.querySelector("#questionTitle"),
   questionType: document.querySelector("#questionType"),
@@ -727,12 +722,6 @@ function updateProgress() {
   els.progressFill.style.width = `${Math.round(ratio * 100)}%`;
   els.progressText.textContent = `${answered} / ${questions.length} ${t("completed")}`;
 
-  if (!state.started && !state.submitted) {
-    els.levelPreview.textContent = t("waiting");
-  } else {
-    const report = calculateReport();
-    els.levelPreview.textContent = `${t("estimate")}: ${getLevelLabel(report.levelKey)}`;
-  }
   renderQuestionMap();
 }
 

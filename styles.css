@@ -1245,6 +1245,11 @@ pre::-webkit-scrollbar-thumb { background: rgba(168, 85, 247, 0.4); border-radiu
     color: #334155 !important;
   }
 
+  .eyebrow,
+  .score-grid span {
+    color: #475569 !important;
+  }
+
   .bar {
     background: #e2e8f0 !important;
   }

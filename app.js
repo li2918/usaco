@@ -367,7 +367,6 @@ const uiText = {
     introEyebrow: "Assessment Flow",
     introTitle: "从基础读题到代码实现的完整入班测评",
     introCopy: "测评共 12 题，包含概念题、简答题和代码题。系统会自动初评客观题与代码结构，并在报告中标出需要老师人工复核的高阶题。",
-    introStart: "开始第一题",
     prev: "上一题",
     save: "保存答案",
     next: "下一题",
@@ -441,7 +440,6 @@ const uiText = {
     introEyebrow: "Assessment Flow",
     introTitle: "Complete placement assessment from reading basics to code implementation",
     introCopy: "The assessment has 12 questions, including concepts, short answers, and coding tasks. The system gives an initial score for objective answers and code structure, then flags advanced answers for teacher review.",
-    introStart: "Start Question 1",
     prev: "Previous",
     save: "Save Answer",
     next: "Next",
@@ -506,7 +504,6 @@ const els = {
   progressFill: document.querySelector("#progressFill"),
   progressText: document.querySelector("#progressText"),
   startBtn: document.querySelector("#startBtn"),
-  introStartBtn: document.querySelector("#introStartBtn"),
   resetBtn: document.querySelector("#resetBtn"),
   levelPreview: document.querySelector("#levelPreview"),
   questionKicker: document.querySelector("#questionKicker"),
@@ -1096,7 +1093,6 @@ function updateStaticText() {
   els.introEyebrow.textContent = ui.introEyebrow;
   els.introTitle.textContent = ui.introTitle;
   els.introCopy.textContent = ui.introCopy;
-  els.introStartBtn.textContent = ui.introStart;
   els.prevBtn.textContent = ui.prev;
   els.saveBtn.textContent = ui.save;
   els.nextBtn.textContent = ui.next;
@@ -1144,7 +1140,6 @@ function escapeHtml(value) {
 }
 
 els.startBtn.addEventListener("click", startAssessment);
-els.introStartBtn.addEventListener("click", startAssessment);
 els.resetBtn.addEventListener("click", resetAssessment);
 els.saveBtn.addEventListener("click", saveCurrentAnswer);
 els.prevBtn.addEventListener("click", () => goToQuestion(state.currentIndex - 1));

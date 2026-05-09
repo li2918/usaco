@@ -3,154 +3,641 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>USACO New Student Assessment</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#070713">
+    <meta name="description" content="AI MARATHON is a global build championship where the next generation of researchers, engineers, and founders ship breakthrough AI against the clock.">
+    <meta property="og:title" content="AI MARATHON — The Global AI Build Championship">
+    <meta property="og:description" content="Form a team. Pick a track. Ship the future of AI in one global sprint.">
+    <meta property="og:type" content="website">
+    <title>AI MARATHON — The Global AI Build Championship</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="aimarathon.css">
   </head>
-  <body>
-    <main class="app-shell">
-      <aside class="sidebar" aria-label="测评控制台" data-i18n-aria-label="sidebarAriaLabel">
-        <div class="brand">
-          <span class="brand-mark" aria-hidden="true">U</span>
-          <div>
-            <h1 data-i18n="brandTitle">USACO 能力评估</h1>
-            <p id="brandTagline" data-i18n="brandTagline">分层诊断 · 单题作答 · 代码题复核</p>
+  <body id="top">
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true">
+      <span class="aurora-blob blob-a"></span>
+      <span class="aurora-blob blob-b"></span>
+      <span class="aurora-blob blob-c"></span>
+    </div>
+
+    <header class="nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="AI MARATHON home">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-mark-pulse"></span>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">AI<span class="brand-dot">·</span>MARATHON</span>
+          <span class="brand-tag">Global Build Championship</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav id="primary-nav" class="nav-links">
+        <a href="#about">About</a>
+        <a href="#tracks">Tracks</a>
+        <a href="#format">Format</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#prizes">Prizes</a>
+        <a href="#judging">Judging</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="nav-cta" href="#register">
+        <span>Register Interest</span>
+        <span class="nav-cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <p class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            Inaugural Season · Registration Opens TBD
+          </p>
+          <h1 class="hero-title">
+            Ship the future of AI.<br>
+            <span class="gradient-text">In one global sprint.</span>
+          </h1>
+          <p class="hero-sub">
+            AI MARATHON is the global build championship for the next generation of researchers, engineers, and founders. Form a team, pick a track, and turn an idea into a working AI system against the clock — judged by a panel of practitioners, evaluated on reproducibility, and celebrated on Demo Day.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#register">
+              <span>Register Interest</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-ghost" href="#tracks">
+              <span>Explore the tracks</span>
+            </a>
           </div>
+          <ul class="hero-meta" role="list">
+            <li>
+              <span class="meta-label">Format</span>
+              <span class="meta-value">Online qualifier · Live finals</span>
+            </li>
+            <li>
+              <span class="meta-label">Team size</span>
+              <span class="meta-value">1 – 4 builders</span>
+            </li>
+            <li>
+              <span class="meta-label">Eligibility</span>
+              <span class="meta-value">Global · 13+</span>
+            </li>
+            <li>
+              <span class="meta-label">Entry fee</span>
+              <span class="meta-value">Free to apply</span>
+            </li>
+          </ul>
         </div>
 
-        <section class="panel student-panel" aria-labelledby="student-title">
-          <h2 id="student-title" data-i18n="studentTitle">学员信息</h2>
-          <label>
-            <span id="studentNameLabel" data-i18n="studentNameLabel">姓名</span>
-            <input id="studentName" type="text" placeholder="例如：Alex" data-i18n-placeholder="studentNamePlaceholder" autocomplete="off">
-          </label>
-          <label>
-            <span id="studentLanguageLabel" data-i18n="studentLanguageLabel">当前编程语言</span>
-            <select id="studentLanguage">
-              <option value="C++">C++</option>
-              <option value="Python">Python</option>
-              <option value="Java">Java</option>
-              <option value="undecided">未确定</option>
-            </select>
-          </label>
-          <label>
-            <span id="studentGoalLabel" data-i18n="studentGoalLabel">目标</span>
-            <select id="studentGoal">
-              <option value="bronze-starter">Bronze 入门</option>
-              <option value="bronze-to-silver">Bronze 冲 Silver</option>
-              <option value="silver-to-gold">Silver 冲 Gold</option>
-              <option value="gold-intensive">Gold 强化</option>
-            </select>
-          </label>
-        </section>
-
-        <section class="panel progress-panel" aria-labelledby="progress-title">
-          <h2 id="progress-title" data-i18n="progressTitle">测评进度</h2>
-          <div class="timer">
-            <span id="timeLeftLabel" data-i18n="timeLeftLabel">剩余时间</span>
-            <strong id="timeLeft" role="timer" aria-live="off">60:00</strong>
+        <aside class="hero-console" aria-label="Live build console">
+          <div class="console-head">
+            <span class="console-dot dot-r"></span>
+            <span class="console-dot dot-y"></span>
+            <span class="console-dot dot-g"></span>
+            <span class="console-title">marathon@build ~ session.log</span>
           </div>
-          <div class="progress-track" aria-hidden="true">
-            <div id="progressFill"></div>
+          <div class="console-body" aria-hidden="true">
+            <p><span class="c-key">$</span> marathon init <span class="c-arg">--track agentic</span></p>
+            <p class="c-dim">› forging team workspace…</p>
+            <p class="c-dim">› provisioning compute credits…</p>
+            <p><span class="c-ok">✓</span> environment ready</p>
+            <p><span class="c-key">$</span> agent.run <span class="c-arg">--task "compress 8h of work into 30 minutes"</span></p>
+            <p class="c-dim">› planning · reasoning · executing</p>
+            <p><span class="c-ok">✓</span> shipped: <span class="c-link">demo.marathon.ai/yourteam</span></p>
+            <p class="c-cursor"><span class="c-key">$</span> <span class="caret"></span></p>
           </div>
-          <p id="progressText" aria-live="polite">0 / 12 已完成</p>
-          <button id="startBtn" class="primary-btn" type="button">开始测评</button>
-          <button id="resetBtn" class="secondary-btn" type="button" data-i18n="reset">重新开始</button>
-        </section>
+        </aside>
+      </section>
 
-        <section class="panel question-map" aria-labelledby="map-title">
-          <h2 id="map-title" data-i18n="mapTitle">题目导航</h2>
-          <div id="questionMap" class="map-grid" role="list"></div>
-        </section>
-      </aside>
+      <section class="trust" aria-label="What makes this different">
+        <ul role="list">
+          <li>
+            <span class="trust-num">01</span>
+            <h3>Transparent judging</h3>
+            <p>Public criteria with published weights. Every finalist receives written feedback from the panel.</p>
+          </li>
+          <li>
+            <span class="trust-num">02</span>
+            <h3>Reproducibility-first</h3>
+            <p>Submissions are evaluated on a sandboxed runner. If it doesn't run, it doesn't win.</p>
+          </li>
+          <li>
+            <span class="trust-num">03</span>
+            <h3>Builder-friendly IP</h3>
+            <p>Teams keep ownership of their work. We only ask for non-exclusive rights to showcase your demo.</p>
+          </li>
+          <li>
+            <span class="trust-num">04</span>
+            <h3>Mentor-supported</h3>
+            <p>Office hours with practitioners during the build window — not just a leaderboard, a community.</p>
+          </li>
+        </ul>
+      </section>
 
-      <section class="workspace">
-        <header class="topbar">
-          <div class="topbar-actions">
-            <button id="languageToggle" class="language-btn" type="button" data-i18n="switchLanguage">中文</button>
-          </div>
-        </header>
+      <section class="section section-about" id="about">
+        <div class="section-head">
+          <p class="eyebrow">About AI MARATHON</p>
+          <h2>A serious championship, run with the energy of a hackathon.</h2>
+        </div>
+        <div class="about-grid">
+          <p class="about-lede">
+            AI MARATHON exists because the bar for what students and early-career builders can ship has changed. Foundation models, agent frameworks, and open weights put production-grade tooling in the hands of anyone willing to learn — but most competitions still optimize for puzzle-solving, not for building.
+          </p>
+          <p class="about-lede">
+            We're rebuilding the format from scratch. Real problems, real shipping, real evaluation. No private graders, no hidden rubrics. Submit code, get scored, get feedback. The teams that ship the most useful, most reproducible, most original work move on.
+          </p>
+          <ul class="about-pillars" role="list">
+            <li>
+              <span class="pillar-tag">Mission</span>
+              <p>Lower the floor and raise the ceiling for the next generation of AI builders.</p>
+            </li>
+            <li>
+              <span class="pillar-tag">Method</span>
+              <p>Open rules, open scoring, sandboxed evaluation, and a published code of conduct.</p>
+            </li>
+            <li>
+              <span class="pillar-tag">Outcome</span>
+              <p>Working systems, public demos, mentor connections, and a portfolio piece that travels.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-        <section id="intro" class="intro-panel">
-          <div>
-            <p id="introEyebrow" class="eyebrow" data-i18n="introEyebrow">Assessment Flow</p>
-            <h2 id="introTitle" data-i18n="introTitle">从基础读题到代码实现的完整入班测评</h2>
-            <p id="introCopy" data-i18n="introCopy">测评共 12 题，包含概念题、简答题和代码题。系统会自动初评客观题与代码结构，并在报告中标出需要老师人工复核的高阶题。</p>
-          </div>
-        </section>
-
-        <section id="questionStage" class="question-stage" aria-live="polite" hidden>
-          <div class="stage-head">
-            <div>
-              <p id="questionKicker" class="eyebrow">Question</p>
-              <h2 id="questionTitle"></h2>
-            </div>
-            <div id="questionType" class="type-pill"></div>
-          </div>
-
-          <article class="question-card">
-            <div class="question-meta">
-              <span id="questionBadge" class="badge"></span>
-              <span id="questionPoints" class="points"></span>
-            </div>
-            <p id="questionPrompt" class="prompt"></p>
-            <div id="problemBlock" class="problem-block" hidden></div>
-            <div id="answerArea" class="answer-area"></div>
+      <section class="section section-tracks" id="tracks">
+        <div class="section-head">
+          <p class="eyebrow">Competition Tracks</p>
+          <h2>Pick the track that matches how you want to build.</h2>
+          <p class="section-sub">Every track shares the same evaluation rubric. Pick the one where your strongest idea lives.</p>
+        </div>
+        <div class="track-grid">
+          <article class="track-card">
+            <header>
+              <span class="track-num">T1</span>
+              <h3>Frontier</h3>
+            </header>
+            <p>Push novel research, reproducible benchmarks, or new training and evaluation methods. For teams who want to move the state of the art an inch forward.</p>
+            <ul role="list">
+              <li>Reproducibility weighting boost</li>
+              <li>Compute credits awarded to top entries</li>
+              <li>Open-source release encouraged</li>
+            </ul>
           </article>
+          <article class="track-card">
+            <header>
+              <span class="track-num">T2</span>
+              <h3>Agents</h3>
+            </header>
+            <p>Autonomous systems that complete real-world workflows end-to-end. Web, code, ops, research, scheduling — anywhere a human is pasting between tabs today.</p>
+            <ul role="list">
+              <li>Live evaluation on held-out tasks</li>
+              <li>Tool-use and recovery scoring</li>
+              <li>Bring your own framework</li>
+            </ul>
+          </article>
+          <article class="track-card">
+            <header>
+              <span class="track-num">T3</span>
+              <h3>AI for Good</h3>
+            </header>
+            <p>Climate, accessibility, education, public health, civic infrastructure. Real users, real impact, measurable outcomes — judged on usefulness, not novelty alone.</p>
+            <ul role="list">
+              <li>Impact assessment with domain mentors</li>
+              <li>Deployment-readiness rubric</li>
+              <li>Non-profit partner channel</li>
+            </ul>
+          </article>
+          <article class="track-card">
+            <header>
+              <span class="track-num">T4</span>
+              <h3>Open Innovation</h3>
+            </header>
+            <p>The "anything that moves AI forward" track. Creative tools, developer experience, hardware, interfaces, weird ideas that wouldn't fit anywhere else. Surprise us.</p>
+            <ul role="list">
+              <li>No category constraint</li>
+              <li>Originality weighting boost</li>
+              <li>Demo Day showcase priority</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-          <div id="feedback" class="feedback" role="status" hidden></div>
-
-          <nav class="stage-actions" aria-label="题目操作" data-i18n-aria-label="stageActionsAriaLabel">
-            <button id="prevBtn" class="secondary-btn" type="button" data-i18n="prev">上一题</button>
-            <button id="saveBtn" class="primary-action" type="button" data-i18n="save">保存答案</button>
-            <button id="nextBtn" class="secondary-btn" type="button" data-i18n="next">下一题</button>
-            <button id="submitBtn" class="finish-btn" type="button" data-i18n="submit">提交测评</button>
-          </nav>
-        </section>
-
-        <section id="report" class="report" aria-live="polite" hidden>
-          <div class="report-header">
-            <div>
-              <p class="eyebrow" data-i18n="reportEyebrow">Assessment Report</p>
-              <h2 id="reportTitle" data-i18n="reportTitle">测评报告</h2>
+      <section class="section section-format" id="format">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>Four phases, one continuous build loop.</h2>
+        </div>
+        <ol class="format-steps" role="list">
+          <li>
+            <div class="step-rail"><span class="step-num">01</span></div>
+            <div class="step-body">
+              <h3>Form your team</h3>
+              <p>Solo or up to four. Teammates can be anywhere in the world. We provide a teammate-finder for solo applicants who want to be matched.</p>
             </div>
-            <button id="printBtn" class="secondary-btn" type="button" data-i18n="print">打印报告</button>
-          </div>
-          <div class="score-grid">
+          </li>
+          <li>
+            <div class="step-rail"><span class="step-num">02</span></div>
+            <div class="step-body">
+              <h3>Build during the sprint window</h3>
+              <p>Open build period with daily mentor office hours, async support, and clearly published rules on what's allowed (yes to foundation models, yes to open source, yes to LLM-assisted coding — with disclosure).</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-rail"><span class="step-num">03</span></div>
+            <div class="step-body">
+              <h3>Submit code + demo</h3>
+              <p>A reproducible repo and a 3-minute demo video. Submissions run on a sandboxed evaluator. Initial scoring is automated; final scoring is by the panel.</p>
+            </div>
+          </li>
+          <li>
+            <div class="step-rail"><span class="step-num">04</span></div>
+            <div class="step-body">
+              <h3>Finals + Demo Day</h3>
+              <p>Top teams across all tracks present live. Public showcase, panel Q&amp;A, and prizes announced. Every finalist receives a written rubric breakdown.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section section-timeline" id="timeline">
+        <div class="section-head">
+          <p class="eyebrow">Timeline</p>
+          <h2>Phased so working students can compete with full-time builders.</h2>
+          <p class="section-sub">Exact dates announced when registration opens. The build window is intentionally long enough to fit around school and work.</p>
+        </div>
+        <ol class="timeline" role="list">
+          <li>
+            <span class="phase">Phase 01</span>
+            <h3>Registration &amp; team formation</h3>
+            <p>Apply with a sketch of your idea and your track. Teammate-finder opens for solo applicants.</p>
+            <span class="phase-when">TBD</span>
+          </li>
+          <li>
+            <span class="phase">Phase 02</span>
+            <h3>Build window</h3>
+            <p>Multi-week open building. Daily mentor office hours. Rolling guidance posted in the public handbook.</p>
+            <span class="phase-when">TBD</span>
+          </li>
+          <li>
+            <span class="phase">Phase 03</span>
+            <h3>Online qualifying</h3>
+            <p>Sandboxed evaluation + first-round panel review. Track-level finalists announced.</p>
+            <span class="phase-when">TBD</span>
+          </li>
+          <li>
+            <span class="phase">Phase 04</span>
+            <h3>Live finals &amp; Demo Day</h3>
+            <p>Finalists present live. Public showcase. Awards announced. Written feedback delivered to every finalist team.</p>
+            <span class="phase-when">TBD</span>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section section-prizes" id="prizes">
+        <div class="section-head">
+          <p class="eyebrow">Recognition</p>
+          <h2>Prizes that compound — beyond the cash.</h2>
+          <p class="section-sub">Final amounts announced at registration open. The structure is fixed and published in advance.</p>
+        </div>
+        <div class="prize-grid">
+          <article class="prize-card prize-grand">
+            <span class="prize-rank">Grand Prize</span>
+            <h3>Marathon Champion</h3>
+            <ul role="list">
+              <li>Cash award · <span class="amount-tbd">amount TBD</span></li>
+              <li>Cloud &amp; compute credits</li>
+              <li>Acceleration support &amp; intro calls</li>
+              <li>Featured slot at Demo Day</li>
+            </ul>
+          </article>
+          <article class="prize-card">
+            <span class="prize-rank">Per Track</span>
+            <h3>Track Champions ×4</h3>
+            <ul role="list">
+              <li>Cash award · <span class="amount-tbd">amount TBD</span></li>
+              <li>Compute credits</li>
+              <li>Mentor matching post-event</li>
+            </ul>
+          </article>
+          <article class="prize-card">
+            <span class="prize-rank">Recognition</span>
+            <h3>Honorable Mentions</h3>
+            <ul role="list">
+              <li>Hardware &amp; tooling kits</li>
+              <li>Public showcase placement</li>
+              <li>Community recognition</li>
+            </ul>
+          </article>
+          <article class="prize-card">
+            <span class="prize-rank">Every finalist</span>
+            <h3>Builder Benefits</h3>
+            <ul role="list">
+              <li>Demo Day invitation</li>
+              <li>Written rubric feedback</li>
+              <li>Alumni network access</li>
+            </ul>
+          </article>
+        </div>
+        <p class="prize-note">All cash amounts and credit totals are finalized and published before registration opens. AI MARATHON does not require participants to forfeit ownership of their submissions.</p>
+      </section>
+
+      <section class="section section-judging" id="judging">
+        <div class="section-head">
+          <p class="eyebrow">Judging Criteria</p>
+          <h2>Published weights. Same rubric across every track.</h2>
+        </div>
+        <div class="judging-grid">
+          <div class="rubric">
             <article>
-              <span id="finalScoreLabel" data-i18n="finalScoreLabel">综合分</span>
-              <strong id="finalScore">0</strong>
+              <header>
+                <h3>Innovation &amp; Originality</h3>
+                <span class="weight">30%</span>
+              </header>
+              <p>Is the idea genuinely new, or a meaningful re-combination? How far does it move beyond an obvious prompt or template?</p>
+              <div class="bar"><span style="--fill: 30%"></span></div>
             </article>
             <article>
-              <span id="recommendedLevelLabel" data-i18n="recommendedLevelLabel">推荐班型</span>
-              <strong id="recommendedLevel">待评估</strong>
+              <header>
+                <h3>Technical Execution</h3>
+                <span class="weight">30%</span>
+              </header>
+              <p>Does the system actually work? Is the engineering sound? How robust is it under realistic inputs and adversarial cases?</p>
+              <div class="bar"><span style="--fill: 30%"></span></div>
             </article>
             <article>
-              <span id="completionRateLabel" data-i18n="completionRateLabel">完成度</span>
-              <strong id="completionRate">0%</strong>
+              <header>
+                <h3>Real-world Impact</h3>
+                <span class="weight">25%</span>
+              </header>
+              <p>Who benefits, and how much? Is the problem worth solving? Is there a credible path from prototype to people using it?</p>
+              <div class="bar"><span style="--fill: 25%"></span></div>
+            </article>
+            <article>
+              <header>
+                <h3>Presentation &amp; Reproducibility</h3>
+                <span class="weight">15%</span>
+              </header>
+              <p>Can a stranger run your code and follow your demo? Is the README honest about limits? Is the writeup clear?</p>
+              <div class="bar"><span style="--fill: 15%"></span></div>
             </article>
           </div>
-          <div class="report-columns">
-            <div class="panel">
-              <h3 id="skillBarsTitle" data-i18n="skillBarsTitle">能力雷达</h3>
-              <div id="skillBars" class="skill-bars"></div>
-            </div>
-            <div class="panel">
-              <h3 id="diagnosisTitle" data-i18n="diagnosisTitle">诊断结论</h3>
-              <ul id="diagnosisList" class="diagnosis-list"></ul>
-            </div>
+          <aside class="judging-side">
+            <h3>How scoring works</h3>
+            <ol>
+              <li><strong>Automated pre-screen.</strong> Sandboxed runner verifies the submission builds and runs.</li>
+              <li><strong>Panel review.</strong> Each entry receives at least two independent panel scores.</li>
+              <li><strong>Calibration.</strong> Discrepancies above a threshold are reviewed by a third panelist.</li>
+              <li><strong>Feedback.</strong> Every finalist team receives a written rubric breakdown.</li>
+            </ol>
+            <p class="side-note">Conflicts of interest are declared and recused. Panel composition is published before judging begins.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-rules" id="rules">
+        <div class="section-head">
+          <p class="eyebrow">Eligibility, Rules &amp; Code of Conduct</p>
+          <h2>Clear, public, and the same for everyone.</h2>
+        </div>
+        <div class="rules-grid">
+          <article>
+            <h3>Who can compete</h3>
+            <ul role="list">
+              <li>Open globally; participants must be 13 or older.</li>
+              <li>Minors require guardian acknowledgment to participate.</li>
+              <li>Teams of 1 – 4. Cross-institution teams welcome.</li>
+              <li>Employees of operating partners are eligible only in non-prize categories.</li>
+            </ul>
+          </article>
+          <article>
+            <h3>What's allowed</h3>
+            <ul role="list">
+              <li>Foundation models &amp; commercial APIs — with disclosure of which were used and how.</li>
+              <li>Open-source dependencies under permissive or copyleft licenses, properly attributed.</li>
+              <li>LLM-assisted coding — disclose usage in the submission writeup.</li>
+              <li>Pre-existing personal code — disclose, and note what was built during the sprint.</li>
+            </ul>
+          </article>
+          <article>
+            <h3>What's disqualifying</h3>
+            <ul role="list">
+              <li>Plagiarism, fabricated results, or undisclosed prior work submitted as new.</li>
+              <li>Sandbox tampering or attempts to identify reviewers.</li>
+              <li>Harassment, discriminatory conduct, or violations of the code of conduct.</li>
+              <li>Submissions that violate the licensing or terms of services they depend on.</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Code of Conduct</h3>
+            <ul role="list">
+              <li>Inclusive, harassment-free environment — for participants, mentors, and panelists alike.</li>
+              <li>Intellectual honesty: cite, attribute, disclose.</li>
+              <li>Reports go to a dedicated, confidential channel and receive a written response.</li>
+              <li>Full text published with the handbook before registration opens.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-committee" id="committee">
+        <div class="section-head">
+          <p class="eyebrow">Organizing Committee</p>
+          <h2>Independent panel. Public roster. Conflicts declared.</h2>
+          <p class="section-sub">Final committee — including panel and advisory roles — is announced when registration opens. Slots below are placeholders until then.</p>
+        </div>
+        <div class="committee-grid">
+          <article class="committee-card">
+            <span class="avatar"></span>
+            <h3>Member · Announcement Pending</h3>
+            <p>Track lead · Frontier</p>
+          </article>
+          <article class="committee-card">
+            <span class="avatar"></span>
+            <h3>Member · Announcement Pending</h3>
+            <p>Track lead · Agents</p>
+          </article>
+          <article class="committee-card">
+            <span class="avatar"></span>
+            <h3>Member · Announcement Pending</h3>
+            <p>Track lead · AI for Good</p>
+          </article>
+          <article class="committee-card">
+            <span class="avatar"></span>
+            <h3>Member · Announcement Pending</h3>
+            <p>Track lead · Open Innovation</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-partners" id="partners">
+        <div class="partners-card">
+          <div>
+            <p class="eyebrow">Partnerships</p>
+            <h2>Be a founding partner of AI MARATHON.</h2>
+            <p>We're inviting a small set of compute, community, and ecosystem partners for the inaugural season. Partner placements are auditable: we publish what every partner contributes, and we don't run pay-to-win categories.</p>
+            <ul class="partner-tiers" role="list">
+              <li>
+                <span class="tier">Title</span>
+                <p>Long-term naming relationship and Demo Day presence.</p>
+              </li>
+              <li>
+                <span class="tier">Compute</span>
+                <p>Cloud, GPU, or API credit pools for participants.</p>
+              </li>
+              <li>
+                <span class="tier">Community</span>
+                <p>Universities, student orgs, and regional partners that host build hubs.</p>
+              </li>
+            </ul>
           </div>
-          <div class="panel">
-            <h3 id="codeReviewTitle" data-i18n="codeReviewTitle">代码题复核清单</h3>
-            <div id="codeReviewList" class="review-list"></div>
+          <div class="partners-cta">
+            <h3>Talk to us</h3>
+            <p>Partner inquiries get a same-week response with a one-page brief and tier sheet.</p>
+            <a class="btn btn-primary" href="mailto:partners@aimarathon.example">
+              <span>partners@aimarathon</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <p class="partner-disclaimer">Email is a placeholder until launch. Drop your interest via the registration form below and we'll follow up.</p>
           </div>
-          <div class="panel">
-            <h3 id="studyPlanTitle" data-i18n="studyPlanTitle">学习路径建议</h3>
-            <ol id="studyPlan" class="study-plan"></ol>
-          </div>
-        </section>
+        </div>
+      </section>
+
+      <section class="section section-faq" id="faq">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Things people usually ask.</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Who is AI MARATHON for?</summary>
+            <p>Builders, researchers, and students who want a serious place to ship. We deliberately keep the floor low (no prerequisite courses, no entry fee, teammate-finder for solo applicants) and the ceiling high (reproducibility-graded, panel-judged, and Demo Day stage time).</p>
+          </details>
+          <details>
+            <summary>Do I need a team to apply?</summary>
+            <p>No. Solo applicants can compete solo or opt in to the teammate-finder. Final teams of up to four can be re-formed during the registration window.</p>
+          </details>
+          <details>
+            <summary>Can I use foundation models, closed APIs, or LLM-assisted coding?</summary>
+            <p>Yes — with disclosure. Submissions list every model, API, and tool used, including AI-assisted coding. Disclosure does not lower your score; non-disclosure is disqualifying.</p>
+          </details>
+          <details>
+            <summary>Is there an entry fee?</summary>
+            <p>No. AI MARATHON is free to apply and free to compete. If we ever introduce paid add-ons (e.g., extra compute), the free path will always remain competitive on its own.</p>
+          </details>
+          <details>
+            <summary>How is judging fair?</summary>
+            <p>Public criteria with published weights. Every entry passes an automated pre-screen, then receives at least two independent panel scores. Discrepancies above a threshold are escalated to a third panelist. Panel composition and conflicts are published.</p>
+          </details>
+          <details>
+            <summary>Who owns the work I submit?</summary>
+            <p>You do. AI MARATHON asks only for a non-exclusive license to showcase your demo and writeup. We do not claim ownership of your code, models, or product.</p>
+          </details>
+          <details>
+            <summary>I'm under 18 — can I still compete?</summary>
+            <p>Yes, if you're 13 or older. Minors need a guardian acknowledgment, which we'll guide you through during registration. Some prize disbursements may be routed through a guardian per applicable laws.</p>
+          </details>
+          <details>
+            <summary>How do I prepare before registration opens?</summary>
+            <p>Three things: (1) form a team or sign up for the finder, (2) sketch one idea per track you'd consider, (3) skim the handbook the moment it drops. The handbook includes the full rubric, sandbox spec, and submission template.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section section-register" id="register">
+        <div class="register-card">
+          <p class="eyebrow">Be first in line</p>
+          <h2>Get early access when registration opens.</h2>
+          <p class="register-sub">Drop your details below and we'll send the handbook the moment it's public — plus first dibs on the teammate-finder and partner channels. No spam, unsubscribe anytime.</p>
+          <form class="register-form" novalidate>
+            <label>
+              <span>Your name</span>
+              <input type="text" name="name" autocomplete="name" placeholder="Ada Lovelace" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" placeholder="you@domain.com" required>
+            </label>
+            <label>
+              <span>Role</span>
+              <select name="role">
+                <option value="student">Student</option>
+                <option value="early-career">Early-career builder</option>
+                <option value="researcher">Researcher</option>
+                <option value="founder">Founder</option>
+                <option value="partner">Potential partner</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <label class="full">
+              <span>Track of interest</span>
+              <select name="track">
+                <option value="undecided">Still deciding</option>
+                <option value="frontier">Frontier</option>
+                <option value="agents">Agents</option>
+                <option value="ai-for-good">AI for Good</option>
+                <option value="open">Open Innovation</option>
+              </select>
+            </label>
+            <button class="btn btn-primary" type="submit">
+              <span>Notify me</span>
+              <span aria-hidden="true">→</span>
+            </button>
+            <p class="form-note" id="formStatus" role="status"></p>
+          </form>
+          <p class="register-fineprint">Your email is used only for AI MARATHON announcements. Full privacy policy published with the handbook.</p>
+        </div>
       </section>
     </main>
 
-    <script src="app.js"></script>
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="brand-mark" aria-hidden="true"><span class="brand-mark-pulse"></span></span>
+          <div>
+            <p class="brand-name">AI<span class="brand-dot">·</span>MARATHON</p>
+            <p class="footer-tag">The global AI build championship.</p>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <div>
+            <h4>Compete</h4>
+            <a href="#tracks">Tracks</a>
+            <a href="#format">Format</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#prizes">Prizes</a>
+          </div>
+          <div>
+            <h4>Trust</h4>
+            <a href="#judging">Judging</a>
+            <a href="#rules">Rules &amp; Conduct</a>
+            <a href="#committee">Committee</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <a href="#register">Register interest</a>
+            <a href="#partners">Become a partner</a>
+            <a href="assessment.html">USACO assessment</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> AI MARATHON · Operated by [Organization · TBD]</p>
+        <p class="footer-policy">
+          <a href="#">Code of Conduct</a>
+          <span aria-hidden="true">·</span>
+          <a href="#">Privacy</a>
+          <span aria-hidden="true">·</span>
+          <a href="#">Terms</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="aimarathon.js"></script>
   </body>
 </html>

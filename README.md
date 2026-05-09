@@ -14,7 +14,7 @@
 
 ## 使用方式
 
-直接在浏览器中打开 `index.html` 即可使用，无需安装依赖。
+直接在浏览器中打开 `assessment.html` 即可使用，无需安装依赖。（站点首页 `index.html` 现为 AI MARATHON 竞赛宣传页，参见 `aimarathon.css` / `aimarathon.js`。）
 
 ## 评分说明
 

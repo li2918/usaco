@@ -3,19 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>USACO New Student Assessment</title>
+    <meta name="theme-color" content="#070713">
+    <title>USACO New Student Assessment · AI MARATHON</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true">
+      <span class="aurora-blob blob-a"></span>
+      <span class="aurora-blob blob-b"></span>
+      <span class="aurora-blob blob-c"></span>
+    </div>
     <main class="app-shell">
       <aside class="sidebar" aria-label="测评控制台" data-i18n-aria-label="sidebarAriaLabel">
-        <div class="brand">
-          <span class="brand-mark" aria-hidden="true">U</span>
+        <a class="brand" href="index.html" title="Back to AI MARATHON">
+          <span class="brand-mark" aria-hidden="true">
+            <span class="brand-mark-pulse"></span>
+          </span>
           <div>
             <h1 data-i18n="brandTitle">USACO 能力评估</h1>
             <p id="brandTagline" data-i18n="brandTagline">分层诊断 · 单题作答 · 代码题复核</p>
           </div>
-        </div>
+        </a>
 
         <section class="panel student-panel" aria-labelledby="student-title">
           <h2 id="student-title" data-i18n="studentTitle">学员信息</h2>
@@ -65,6 +77,10 @@
 
       <section class="workspace">
         <header class="topbar">
+          <a class="back-link" href="index.html">
+            <span aria-hidden="true">←</span>
+            <span>AI MARATHON</span>
+          </a>
           <div class="topbar-actions">
             <button id="languageToggle" class="language-btn" type="button" data-i18n="switchLanguage">中文</button>
           </div>

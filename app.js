@@ -334,11 +334,164 @@ const questionEnglish = {
   }
 };
 
+const uiText = {
+  zh: {
+    htmlLang: "zh-CN",
+    pageTitle: "USACO 新学员能力评估",
+    switchLanguage: "English",
+    brandTagline: "分层诊断 · 单题作答 · 代码题复核",
+    studentTitle: "学员信息",
+    studentNameLabel: "姓名",
+    studentNamePlaceholder: "例如：Alex",
+    studentLanguageLabel: "当前编程语言",
+    undecided: "未确定",
+    studentGoalLabel: "目标",
+    goals: {
+      "bronze-starter": "Bronze 入门",
+      "bronze-to-silver": "Bronze 冲 Silver",
+      "silver-to-gold": "Silver 冲 Gold",
+      "gold-intensive": "Gold 强化"
+    },
+    progressTitle: "测评进度",
+    timeLeftLabel: "剩余时间",
+    start: "开始测评",
+    inProgress: "测评进行中",
+    submitted: "测评已提交",
+    reset: "重新开始",
+    mapTitle: "题目导航",
+    topEyebrow: "Adaptive Diagnostic",
+    topTitle: "一题一题完成，逐步定位真实 USACO 能力",
+    topSubtitle: "分层入班测评工具",
+    waiting: "等待开始",
+    estimate: "当前估计",
+    introEyebrow: "Assessment Flow",
+    introTitle: "从基础读题到代码实现的完整入班测评",
+    introCopy: "测评共 12 题，包含概念题、简答题和代码题。系统会自动初评客观题与代码结构，并在报告中标出需要老师人工复核的高阶题。",
+    introStart: "开始第一题",
+    prev: "上一题",
+    save: "保存答案",
+    next: "下一题",
+    submit: "提交测评",
+    print: "打印报告",
+    reportEyebrow: "Assessment Report",
+    reportTitle: "测评报告",
+    finalScoreLabel: "综合分",
+    recommendedLevelLabel: "推荐班型",
+    pending: "待评估",
+    completionRateLabel: "完成度",
+    skillBarsTitle: "能力雷达",
+    diagnosisTitle: "诊断结论",
+    codeReviewTitle: "代码题复核清单",
+    studyPlanTitle: "学习路径建议",
+    completed: "已完成",
+    points: "分",
+    input: "输入",
+    output: "输出",
+    sampleInput: "样例输入",
+    sampleOutput: "样例输出",
+    shortPlaceholder: "写下你的思路。请尽量说明为什么这样做，而不只是给结论。",
+    codePlaceholder: "在这里写代码。可以写完整程序，也可以写核心函数，但要包含复杂度说明。",
+    autoFocus: "自动初评关注点",
+    savedChoice: "已保存。提交后会计入诊断结果。",
+    savedScore: "已保存，自动初评",
+    newStudent: "新学员",
+    reportOf: (name, timeExpired) => `${name} 的测评报告${timeExpired ? "（时间到）" : ""}`,
+    noAnswer: "未作答",
+    types: {
+      choice: "选择题",
+      short: "简答题",
+      code: "代码题"
+    },
+    levels: {
+      prep: "Bronze 预备班",
+      bronze: "Bronze 冲刺班",
+      silver: "Silver 提升班",
+      gold: "Gold 强化班"
+    }
+  },
+  en: {
+    htmlLang: "en",
+    pageTitle: "USACO New Student Assessment",
+    switchLanguage: "中文",
+    brandTagline: "Level diagnosis · One question at a time · Code review",
+    studentTitle: "Student Info",
+    studentNameLabel: "Name",
+    studentNamePlaceholder: "Example: Alex",
+    studentLanguageLabel: "Current Programming Language",
+    undecided: "Not sure",
+    studentGoalLabel: "Goal",
+    goals: {
+      "bronze-starter": "Bronze Starter",
+      "bronze-to-silver": "Bronze to Silver",
+      "silver-to-gold": "Silver to Gold",
+      "gold-intensive": "Gold Strengthening"
+    },
+    progressTitle: "Progress",
+    timeLeftLabel: "Time Left",
+    start: "Start Assessment",
+    inProgress: "In Progress",
+    submitted: "Submitted",
+    reset: "Restart",
+    mapTitle: "Questions",
+    topEyebrow: "Adaptive Diagnostic",
+    topTitle: "Complete one question at a time to identify real USACO ability",
+    topSubtitle: "Placement assessment tool",
+    waiting: "Waiting",
+    estimate: "Estimate",
+    introEyebrow: "Assessment Flow",
+    introTitle: "Complete placement assessment from reading basics to code implementation",
+    introCopy: "The assessment has 12 questions, including concepts, short answers, and coding tasks. The system gives an initial score for objective answers and code structure, then flags advanced answers for teacher review.",
+    introStart: "Start Question 1",
+    prev: "Previous",
+    save: "Save Answer",
+    next: "Next",
+    submit: "Submit Assessment",
+    print: "Print Report",
+    reportEyebrow: "Assessment Report",
+    reportTitle: "Assessment Report",
+    finalScoreLabel: "Overall Score",
+    recommendedLevelLabel: "Recommended Class",
+    pending: "Pending",
+    completionRateLabel: "Completion",
+    skillBarsTitle: "Skills",
+    diagnosisTitle: "Diagnosis",
+    codeReviewTitle: "Code Review Checklist",
+    studyPlanTitle: "Study Plan",
+    completed: "completed",
+    points: "pts",
+    input: "Input",
+    output: "Output",
+    sampleInput: "Sample Input",
+    sampleOutput: "Sample Output",
+    shortPlaceholder: "Explain your reasoning. Try to include why, not only the conclusion.",
+    codePlaceholder: "Write code here. A full program or core function is fine, but include complexity.",
+    autoFocus: "Auto-scoring Focus",
+    savedChoice: "Saved. It will be included after submission.",
+    savedScore: "Saved. Initial score:",
+    newStudent: "New Student",
+    reportOf: (name, timeExpired) => `${name}'s Assessment Report${timeExpired ? " (Time Expired)" : ""}`,
+    noAnswer: "No answer",
+    types: {
+      choice: "Multiple Choice",
+      short: "Short Answer",
+      code: "Coding"
+    },
+    levels: {
+      prep: "Bronze Prep",
+      bronze: "Bronze Accelerator",
+      silver: "Silver Builder",
+      gold: "Gold Intensive"
+    }
+  }
+};
+
 const TOTAL_SECONDS = 60 * 60;
 
 const state = {
+  language: "zh",
   started: false,
   submitted: false,
+  timeExpired: false,
   currentIndex: 0,
   answers: {},
   secondsLeft: TOTAL_SECONDS,
@@ -373,13 +526,36 @@ const els = {
   studentName: document.querySelector("#studentName"),
   studentLanguage: document.querySelector("#studentLanguage"),
   studentGoal: document.querySelector("#studentGoal"),
+  languageToggle: document.querySelector("#languageToggle"),
+  brandTagline: document.querySelector("#brandTagline"),
+  studentTitle: document.querySelector("#student-title"),
+  studentNameLabel: document.querySelector("#studentNameLabel"),
+  studentLanguageLabel: document.querySelector("#studentLanguageLabel"),
+  studentGoalLabel: document.querySelector("#studentGoalLabel"),
+  progressTitle: document.querySelector("#progress-title"),
+  timeLeftLabel: document.querySelector("#timeLeftLabel"),
+  mapTitle: document.querySelector("#map-title"),
+  topEyebrow: document.querySelector("#topEyebrow"),
+  topTitle: document.querySelector("#topTitle"),
+  topSubtitle: document.querySelector("#topSubtitle"),
+  introEyebrow: document.querySelector("#introEyebrow"),
+  introTitle: document.querySelector("#introTitle"),
+  introCopy: document.querySelector("#introCopy"),
   reportTitle: document.querySelector("#reportTitle"),
+  reportEyebrow: document.querySelector(".report-header .eyebrow"),
+  finalScoreLabel: document.querySelector("#finalScoreLabel"),
   finalScore: document.querySelector("#finalScore"),
+  recommendedLevelLabel: document.querySelector("#recommendedLevelLabel"),
   recommendedLevel: document.querySelector("#recommendedLevel"),
+  completionRateLabel: document.querySelector("#completionRateLabel"),
   completionRate: document.querySelector("#completionRate"),
+  skillBarsTitle: document.querySelector("#skillBarsTitle"),
   skillBars: document.querySelector("#skillBars"),
+  diagnosisTitle: document.querySelector("#diagnosisTitle"),
   diagnosisList: document.querySelector("#diagnosisList"),
+  codeReviewTitle: document.querySelector("#codeReviewTitle"),
   codeReviewList: document.querySelector("#codeReviewList"),
+  studyPlanTitle: document.querySelector("#studyPlanTitle"),
   studyPlan: document.querySelector("#studyPlan"),
   printBtn: document.querySelector("#printBtn")
 };
@@ -391,7 +567,7 @@ function startAssessment() {
   els.intro.hidden = true;
   els.report.hidden = true;
   els.questionStage.hidden = false;
-  els.startBtn.textContent = "测评进行中 / In Progress";
+  els.startBtn.textContent = t("inProgress");
   els.startBtn.disabled = true;
   state.timerId = window.setInterval(tickTimer, 1000);
   tickTimer();
@@ -403,11 +579,12 @@ function resetAssessment() {
   window.clearInterval(state.timerId);
   state.started = false;
   state.submitted = false;
+  state.timeExpired = false;
   state.currentIndex = 0;
   state.answers = {};
   state.secondsLeft = TOTAL_SECONDS;
   state.timerId = null;
-  els.startBtn.textContent = "开始测评 / Start";
+  els.startBtn.textContent = t("start");
   els.startBtn.disabled = false;
   els.intro.hidden = false;
   els.questionStage.hidden = true;
@@ -435,13 +612,13 @@ function updateTimerText() {
 
 function renderCurrentQuestion() {
   const question = questions[state.currentIndex];
-  const english = questionEnglish[question.id] || {};
+  const view = getQuestionView(question);
   els.questionKicker.textContent = `Question ${state.currentIndex + 1} / ${questions.length}`;
-  els.questionTitle.textContent = bilingual(question.title, english.title);
+  els.questionTitle.textContent = view.title;
   els.questionType.textContent = getTypeLabel(question.type);
-  els.questionBadge.textContent = `${bilingual(question.level, english.level)} · ${bilingual(question.skill, english.skill)}`;
-  els.questionPoints.textContent = `${question.points} 分 / pts`;
-  els.questionPrompt.textContent = bilingual(question.prompt, english.prompt);
+  els.questionBadge.textContent = `${view.level} · ${view.skill}`;
+  els.questionPoints.textContent = `${question.points} ${t("points")}`;
+  els.questionPrompt.textContent = view.prompt;
   els.answerArea.innerHTML = "";
   els.feedback.hidden = true;
 
@@ -463,16 +640,16 @@ function renderProblemBlock(question) {
     return;
   }
 
-  const problemEn = questionEnglish[question.id]?.problem || {};
+  const problem = getQuestionView(question).problem || question.problem;
   els.problemBlock.hidden = false;
   els.problemBlock.innerHTML = `
     <dl>
-      <div><dt>输入 / Input</dt><dd>${escapeHtml(bilingual(question.problem.input, problemEn.input))}</dd></div>
-      <div><dt>输出 / Output</dt><dd>${escapeHtml(bilingual(question.problem.output, problemEn.output))}</dd></div>
+      <div><dt>${t("input")}</dt><dd>${escapeHtml(problem.input)}</dd></div>
+      <div><dt>${t("output")}</dt><dd>${escapeHtml(problem.output)}</dd></div>
     </dl>
     <div class="samples">
-      <div><span>样例输入 / Sample Input</span><pre>${escapeHtml(question.problem.sampleIn)}</pre></div>
-      <div><span>样例输出 / Sample Output</span><pre>${escapeHtml(question.problem.sampleOut)}</pre></div>
+      <div><span>${t("sampleInput")}</span><pre>${escapeHtml(problem.sampleIn)}</pre></div>
+      <div><span>${t("sampleOutput")}</span><pre>${escapeHtml(problem.sampleOut)}</pre></div>
     </div>
   `;
 }
@@ -494,7 +671,7 @@ function renderChoice(question) {
       updateProgress();
     });
     const text = document.createElement("span");
-    text.textContent = bilingual(option, questionEnglish[question.id]?.options?.[index]);
+    text.textContent = getQuestionView(question).options?.[index] || option;
     label.append(radio, text);
     options.append(label);
   });
@@ -505,8 +682,8 @@ function renderShortAnswer(question) {
   const wrapper = document.createElement("div");
   wrapper.className = "written-answer";
   wrapper.innerHTML = `
-    <textarea id="currentAnswer" rows="8" placeholder="写下你的思路 / Explain your reasoning.">${escapeHtml(state.answers[question.id] || "")}</textarea>
-    <p>${escapeHtml(bilingual(question.rubric, questionEnglish[question.id]?.rubric))}</p>
+    <textarea id="currentAnswer" rows="8" placeholder="${escapeHtml(t("shortPlaceholder"))}">${escapeHtml(state.answers[question.id] || "")}</textarea>
+    <p>${escapeHtml(getQuestionView(question).rubric || question.rubric)}</p>
   `;
   els.answerArea.append(wrapper);
 }
@@ -515,11 +692,11 @@ function renderCodeAnswer(question) {
   const wrapper = document.createElement("div");
   wrapper.className = "code-answer";
   wrapper.innerHTML = `
-    <textarea id="currentAnswer" rows="18" spellcheck="false" placeholder="在这里写代码 / Write code here. Include complexity.">${escapeHtml(state.answers[question.id] || "")}</textarea>
+    <textarea id="currentAnswer" rows="18" spellcheck="false" placeholder="${escapeHtml(t("codePlaceholder"))}">${escapeHtml(state.answers[question.id] || "")}</textarea>
     <div class="rubric">
-      <strong>自动初评关注点 / Auto-scoring Focus</strong>
-      <ul>${question.checks.map((check, index) => `<li>${escapeHtml(bilingual(check.label, questionEnglish[question.id]?.checks?.[index]))}</li>`).join("")}</ul>
-      <p>${escapeHtml(bilingual(question.rubric, questionEnglish[question.id]?.rubric))}</p>
+      <strong>${t("autoFocus")}</strong>
+      <ul>${question.checks.map((check, index) => `<li>${escapeHtml(getCheckLabel(question, check, index))}</li>`).join("")}</ul>
+      <p>${escapeHtml(getQuestionView(question).rubric || question.rubric)}</p>
     </div>
   `;
   els.answerArea.append(wrapper);
@@ -527,12 +704,16 @@ function renderCodeAnswer(question) {
 
 function saveCurrentAnswer() {
   const question = questions[state.currentIndex];
+  persistCurrentAnswer(question);
+  showSavedFeedback(question);
+  updateProgress();
+}
+
+function persistCurrentAnswer(question = questions[state.currentIndex]) {
   if (question.type !== "choice") {
     const input = document.querySelector("#currentAnswer");
     state.answers[question.id] = input ? input.value.trim() : "";
   }
-  showSavedFeedback(question);
-  updateProgress();
 }
 
 function showSavedFeedback(question) {
@@ -540,10 +721,10 @@ function showSavedFeedback(question) {
   els.feedback.hidden = false;
   els.feedback.className = `feedback ${result.earned >= question.points * 0.7 ? "good" : "warn"}`;
   if (question.type === "choice") {
-    els.feedback.textContent = "已保存。提交后会计入诊断结果。 / Saved. It will be included after submission.";
+    els.feedback.textContent = t("savedChoice");
     return;
   }
-  els.feedback.textContent = `已保存，自动初评 ${result.earned} / ${question.points} 分。${result.note} / Saved. Initial score: ${result.earned} / ${question.points} pts. ${result.noteEn}`;
+  els.feedback.textContent = `${t("savedScore")} ${result.earned} / ${question.points} ${t("points")}. ${getResultNote(result)}`;
 }
 
 function goToQuestion(index) {
@@ -556,13 +737,13 @@ function updateProgress() {
   const answered = questions.filter((question) => hasAnswer(question)).length;
   const ratio = answered / questions.length;
   els.progressFill.style.width = `${Math.round(ratio * 100)}%`;
-  els.progressText.textContent = `${answered} / ${questions.length} 已完成 / completed`;
+  els.progressText.textContent = `${answered} / ${questions.length} ${t("completed")}`;
 
   if (!state.started && !state.submitted) {
-    els.levelPreview.textContent = "等待开始 / Waiting";
+    els.levelPreview.textContent = t("waiting");
   } else {
     const report = calculateReport();
-    els.levelPreview.textContent = `当前估计 / Estimate: ${report.level}`;
+    els.levelPreview.textContent = `${t("estimate")}: ${getLevelLabel(report.levelKey)}`;
   }
   renderQuestionMap();
 }
@@ -577,8 +758,8 @@ function renderQuestionMap() {
     button.dataset.level = question.group;
     button.classList.toggle("active", index === state.currentIndex && state.started);
     button.classList.toggle("done", hasAnswer(question));
-    const english = questionEnglish[question.id] || {};
-    button.title = `${bilingual(question.level, english.level)} · ${getTypeLabel(question.type)} · ${bilingual(question.skill, english.skill)}`;
+    const view = getQuestionView(question);
+    button.title = `${view.level} · ${getTypeLabel(question.type)} · ${view.skill}`;
     button.addEventListener("click", () => {
       if (!state.started || state.submitted) return;
       goToQuestion(index);
@@ -668,18 +849,18 @@ function calculateReport() {
   const levelScores = toPercentMap(levelMap);
   const typeScores = toPercentMap(typeMap);
 
-  let level = "Bronze 预备班 / Bronze Prep";
+  let levelKey = "prep";
   if (score >= 78 && levelScores.gold >= 0.58 && typeScores.code >= 0.55) {
-    level = "Gold 强化班 / Gold Intensive";
+    levelKey = "gold";
   } else if (score >= 62 && levelScores.silver >= 0.58 && typeScores.code >= 0.4) {
-    level = "Silver 提升班 / Silver Builder";
+    levelKey = "silver";
   } else if (score >= 42 && levelScores.bronze >= 0.5) {
-    level = "Bronze 冲刺班 / Bronze Accelerator";
+    levelKey = "bronze";
   }
 
   return {
     score,
-    level,
+    levelKey,
     levelScores,
     typeScores,
     reviewItems,
@@ -711,9 +892,10 @@ function submitAssessment(timeExpired = false) {
   saveCurrentAnswer();
   state.started = false;
   state.submitted = true;
+  state.timeExpired = timeExpired;
   window.clearInterval(state.timerId);
   state.timerId = null;
-  els.startBtn.textContent = "测评已提交 / Submitted";
+  els.startBtn.textContent = t("submitted");
   els.questionStage.hidden = true;
   els.intro.hidden = true;
   renderReport(timeExpired);
@@ -722,11 +904,11 @@ function submitAssessment(timeExpired = false) {
 
 function renderReport(timeExpired = false) {
   const report = calculateReport();
-  const name = els.studentName.value.trim() || "新学员 / New Student";
+  const name = els.studentName.value.trim() || t("newStudent");
   els.report.hidden = false;
-  els.reportTitle.textContent = `${name} 的测评报告 / Assessment Report${timeExpired ? "（时间到 / Time Expired）" : ""}`;
+  els.reportTitle.textContent = t("reportOf")(name, timeExpired);
   els.finalScore.textContent = String(report.score);
-  els.recommendedLevel.textContent = report.level;
+  els.recommendedLevel.textContent = getLevelLabel(report.levelKey);
   els.completionRate.textContent = `${Math.round((report.completed / questions.length) * 100)}%`;
 
   els.skillBars.innerHTML = "";
@@ -736,7 +918,7 @@ function renderReport(timeExpired = false) {
       const row = document.createElement("div");
       row.className = "skill-row";
       row.innerHTML = `
-        <div class="skill-label"><span>${escapeHtml(bilingual(item.skill, getSkillEnglish(item.skill)))}</span><span>${item.percent}%</span></div>
+        <div class="skill-label"><span>${escapeHtml(getSkillLabel(item.skill))}</span><span>${item.percent}%</span></div>
         <div class="bar"><div style="width:${item.percent}%"></div></div>
       `;
       els.skillBars.append(row);
@@ -753,12 +935,21 @@ function renderDiagnosis(report) {
   const strong = report.skills.filter((item) => item.percent >= 75).slice(0, 3);
   const items = [];
 
-  items.push(`推荐从「${report.level}」开始；当前目标为「${els.studentGoal.value}」，主要语言为 ${els.studentLanguage.value}。 / Recommended starting point: ${report.level}. Current goal: ${els.studentGoal.value}. Main language: ${els.studentLanguage.value}.`);
-  items.push(`代码题自动初评得分率约为 ${Math.round((report.typeScores.code || 0) * 100)}%，该项最能反映真实上机能力。 / Coding-task initial score is about ${Math.round((report.typeScores.code || 0) * 100)}%, which best reflects practical implementation ability.`);
-  if (strong.length) items.push(`优势能力：${formatSkillList(strong)}。 / Strengths: ${formatSkillList(strong, true)}.`);
-  if (weak.length) items.push(`优先补强：${formatSkillList(weak)}。 / Priority skills to improve: ${formatSkillList(weak, true)}.`);
-  if ((report.typeScores.short || 0) < 0.55) items.push("算法表达偏弱，建议要求学员每题先写思路、复杂度和边界样例。 / Algorithm explanation is relatively weak. Ask the student to write the idea, complexity, and edge-case samples before coding.");
-  if ((report.typeScores.code || 0) < 0.45) items.push("代码实现稳定性不足，建议暂缓高阶专题，先补输入输出、数据结构和调试流程。 / Code implementation is not yet stable. Delay advanced topics and first strengthen input/output, data structures, and debugging workflow.");
+  if (state.language === "zh") {
+    items.push(`推荐从「${getLevelLabel(report.levelKey)}」开始；当前目标为「${getGoalLabel(els.studentGoal.value)}」，主要语言为 ${getLanguageLabel(els.studentLanguage.value)}。`);
+    items.push(`代码题自动初评得分率约为 ${Math.round((report.typeScores.code || 0) * 100)}%，该项最能反映真实上机能力。`);
+    if (strong.length) items.push(`优势能力：${formatSkillList(strong)}。`);
+    if (weak.length) items.push(`优先补强：${formatSkillList(weak)}。`);
+    if ((report.typeScores.short || 0) < 0.55) items.push("算法表达偏弱，建议要求学员每题先写思路、复杂度和边界样例。");
+    if ((report.typeScores.code || 0) < 0.45) items.push("代码实现稳定性不足，建议暂缓高阶专题，先补输入输出、数据结构和调试流程。");
+  } else {
+    items.push(`Recommended starting point: ${getLevelLabel(report.levelKey)}. Current goal: ${getGoalLabel(els.studentGoal.value)}. Main language: ${getLanguageLabel(els.studentLanguage.value)}.`);
+    items.push(`Coding-task initial score is about ${Math.round((report.typeScores.code || 0) * 100)}%, which best reflects practical implementation ability.`);
+    if (strong.length) items.push(`Strengths: ${formatSkillList(strong)}.`);
+    if (weak.length) items.push(`Priority skills to improve: ${formatSkillList(weak)}.`);
+    if ((report.typeScores.short || 0) < 0.55) items.push("Algorithm explanation is relatively weak. Ask the student to write the idea, complexity, and edge-case samples before coding.");
+    if ((report.typeScores.code || 0) < 0.45) items.push("Code implementation is not yet stable. Delay advanced topics and first strengthen input/output, data structures, and debugging workflow.");
+  }
 
   items.forEach((item) => {
     const li = document.createElement("li");
@@ -772,13 +963,13 @@ function renderCodeReview(items) {
   items.forEach(({ question, result, answer }) => {
     const article = document.createElement("article");
     article.className = "review-item";
-    const preview = answer.trim() ? answer.trim().slice(0, 420) : "未作答 / No answer";
+    const preview = answer.trim() ? answer.trim().slice(0, 420) : t("noAnswer");
     article.innerHTML = `
       <div>
-        <strong>${escapeHtml(bilingual(question.title, questionEnglish[question.id]?.title))}</strong>
-        <span>${result.earned} / ${question.points} 分 / pts · ${escapeHtml(bilingual(question.level, questionEnglish[question.id]?.level))}</span>
+        <strong>${escapeHtml(getQuestionView(question).title)}</strong>
+        <span>${result.earned} / ${question.points} ${t("points")} · ${escapeHtml(getQuestionView(question).level)}</span>
       </div>
-      <p>${escapeHtml(bilingual(result.note, result.noteEn))}</p>
+      <p>${escapeHtml(getResultNote(result))}</p>
       <pre>${escapeHtml(preview)}</pre>
     `;
     els.codeReviewList.append(article);
@@ -790,24 +981,25 @@ function renderStudyPlan(report) {
   const weakSkills = report.skills.filter((item) => item.percent < 65).map((item) => item.skill);
   const plan = [];
 
-  if (report.level.includes("预备")) {
-    plan.push("第 1 周：变量、循环、数组、字符串与输入输出，每次课后完成 3 道短代码题。 / Week 1: variables, loops, arrays, strings, and input/output. Complete 3 short coding tasks after each class.");
-    plan.push("第 2 周：Bronze 模拟与枚举，训练手写状态表和边界样例。 / Week 2: Bronze simulation and enumeration. Practice writing state tables and edge-case samples.");
-  } else if (report.level.includes("Bronze")) {
-    plan.push("第 1 周：排序、频次统计、双重枚举与模拟题混合训练。 / Week 1: mixed practice on sorting, frequency counting, double loops, and simulation.");
-    plan.push("第 2 周：加入前缀和、简单贪心和短代码限时练习。 / Week 2: add prefix sums, simple greedy, and timed short coding drills.");
-  } else if (report.level.includes("Silver")) {
-    plan.push("第 1 周：二分答案、前缀和、双指针，每个专题完成 5 到 8 道题。 / Week 1: binary search on answer, prefix sums, and two pointers. Finish 5 to 8 problems per topic.");
-    plan.push("第 2 周：DFS/BFS、并查集、Dijkstra 入门，并安排 90 分钟限时套题。 / Week 2: DFS/BFS, DSU, and introductory Dijkstra, plus a 90-minute timed set.");
+  if (report.levelKey === "prep") {
+    plan.push(localizedText("第 1 周：变量、循环、数组、字符串与输入输出，每次课后完成 3 道短代码题。", "Week 1: variables, loops, arrays, strings, and input/output. Complete 3 short coding tasks after each class."));
+    plan.push(localizedText("第 2 周：Bronze 模拟与枚举，训练手写状态表和边界样例。", "Week 2: Bronze simulation and enumeration. Practice writing state tables and edge-case samples."));
+  } else if (report.levelKey === "bronze") {
+    plan.push(localizedText("第 1 周：排序、频次统计、双重枚举与模拟题混合训练。", "Week 1: mixed practice on sorting, frequency counting, double loops, and simulation."));
+    plan.push(localizedText("第 2 周：加入前缀和、简单贪心和短代码限时练习。", "Week 2: add prefix sums, simple greedy, and timed short coding drills."));
+  } else if (report.levelKey === "silver") {
+    plan.push(localizedText("第 1 周：二分答案、前缀和、双指针，每个专题完成 5 到 8 道题。", "Week 1: binary search on answer, prefix sums, and two pointers. Finish 5 to 8 problems per topic."));
+    plan.push(localizedText("第 2 周：DFS/BFS、并查集、Dijkstra 入门，并安排 90 分钟限时套题。", "Week 2: DFS/BFS, DSU, and introductory Dijkstra, plus a 90-minute timed set."));
   } else {
-    plan.push("第 1 周：树状数组、线段树、树形 DP 和最短路变形题。 / Week 1: Fenwick trees, segment trees, tree DP, and shortest-path variations.");
-    plan.push("第 2 周：Gold 套题复盘，要求写出状态定义、复杂度证明和错因总结。 / Week 2: review Gold sets with state definitions, complexity proofs, and error summaries.");
+    plan.push(localizedText("第 1 周：树状数组、线段树、树形 DP 和最短路变形题。", "Week 1: Fenwick trees, segment trees, tree DP, and shortest-path variations."));
+    plan.push(localizedText("第 2 周：Gold 套题复盘，要求写出状态定义、复杂度证明和错因总结。", "Week 2: review Gold sets with state definitions, complexity proofs, and error summaries."));
   }
 
   if (weakSkills.length) {
-    plan.push(`重点回炉「${weakSkills.slice(0, 4).join("、")}」，直到单项得分率超过 70%。 / Rebuild priority skills: ${weakSkills.slice(0, 4).map(getSkillEnglish).join(", ")} until each exceeds 70%.`);
+    const skillList = weakSkills.slice(0, 4).map(getSkillLabel).join(state.language === "zh" ? "、" : ", ");
+    plan.push(localizedText(`重点回炉「${skillList}」，直到单项得分率超过 70%。`, `Rebuild priority skills: ${skillList} until each exceeds 70%.`));
   }
-  plan.push("代码题建议由老师复核一次，尤其检查边界、复杂度、变量初始化和样例外小数据。 / Have a teacher review coding answers, especially edge cases, complexity, variable initialization, and tests beyond the sample.");
+  plan.push(localizedText("代码题建议由老师复核一次，尤其检查边界、复杂度、变量初始化和样例外小数据。", "Have a teacher review coding answers, especially edge cases, complexity, variable initialization, and tests beyond the sample."));
 
   plan.forEach((item) => {
     const li = document.createElement("li");
@@ -817,15 +1009,24 @@ function renderStudyPlan(report) {
 }
 
 function getTypeLabel(type) {
-  return {
-    choice: "选择题 / Multiple Choice",
-    short: "简答题 / Short Answer",
-    code: "代码题 / Coding"
-  }[type];
+  return t("types")[type];
 }
 
-function bilingual(chinese, english) {
-  return english ? `${chinese} / ${english}` : chinese;
+function t(key) {
+  return uiText[state.language][key];
+}
+
+function localizedText(zh, en) {
+  return state.language === "zh" ? zh : en;
+}
+
+function getQuestionView(question) {
+  if (state.language === "zh") return question;
+  return {
+    ...question,
+    ...(questionEnglish[question.id] || {}),
+    problem: questionEnglish[question.id]?.problem || question.problem
+  };
 }
 
 function getSkillEnglish(skill) {
@@ -836,8 +1037,98 @@ function getSkillEnglish(skill) {
   return entry?.skill || skill;
 }
 
-function formatSkillList(items, englishOnly = false) {
-  return items.map((item) => englishOnly ? getSkillEnglish(item.skill) : item.skill).join(englishOnly ? ", " : "、");
+function getSkillLabel(skill) {
+  return state.language === "zh" ? skill : getSkillEnglish(skill);
+}
+
+function getCheckLabel(question, check, index) {
+  return state.language === "zh" ? check.label : questionEnglish[question.id]?.checks?.[index] || check.label;
+}
+
+function getResultNote(result) {
+  return state.language === "zh" ? result.note : result.noteEn;
+}
+
+function getLevelLabel(levelKey) {
+  return t("levels")[levelKey];
+}
+
+function getGoalLabel(value) {
+  return t("goals")[value] || value;
+}
+
+function getLanguageLabel(value) {
+  if (value === "undecided") return t("undecided");
+  return value;
+}
+
+function formatSkillList(items) {
+  return items.map((item) => getSkillLabel(item.skill)).join(state.language === "zh" ? "、" : ", ");
+}
+
+function updateGoalOptions() {
+  Array.from(els.studentGoal.options).forEach((option) => {
+    option.textContent = getGoalLabel(option.value);
+  });
+  Array.from(els.studentLanguage.options).forEach((option) => {
+    if (option.value === "undecided") option.textContent = t("undecided");
+  });
+}
+
+function updateStaticText() {
+  const ui = uiText[state.language];
+  document.documentElement.lang = ui.htmlLang;
+  document.title = ui.pageTitle;
+  els.languageToggle.textContent = ui.switchLanguage;
+  els.brandTagline.textContent = ui.brandTagline;
+  els.studentTitle.textContent = ui.studentTitle;
+  els.studentNameLabel.textContent = ui.studentNameLabel;
+  els.studentName.placeholder = ui.studentNamePlaceholder;
+  els.studentLanguageLabel.textContent = ui.studentLanguageLabel;
+  els.studentGoalLabel.textContent = ui.studentGoalLabel;
+  els.progressTitle.textContent = ui.progressTitle;
+  els.timeLeftLabel.textContent = ui.timeLeftLabel;
+  els.resetBtn.textContent = ui.reset;
+  els.mapTitle.textContent = ui.mapTitle;
+  els.topEyebrow.textContent = ui.topEyebrow;
+  els.topTitle.textContent = ui.topTitle;
+  els.topSubtitle.textContent = ui.topSubtitle;
+  els.introEyebrow.textContent = ui.introEyebrow;
+  els.introTitle.textContent = ui.introTitle;
+  els.introCopy.textContent = ui.introCopy;
+  els.introStartBtn.textContent = ui.introStart;
+  els.prevBtn.textContent = ui.prev;
+  els.saveBtn.textContent = ui.save;
+  els.nextBtn.textContent = ui.next;
+  els.submitBtn.textContent = ui.submit;
+  els.printBtn.textContent = ui.print;
+  els.reportEyebrow.textContent = ui.reportEyebrow;
+  els.finalScoreLabel.textContent = ui.finalScoreLabel;
+  els.recommendedLevelLabel.textContent = ui.recommendedLevelLabel;
+  els.completionRateLabel.textContent = ui.completionRateLabel;
+  els.skillBarsTitle.textContent = ui.skillBarsTitle;
+  els.diagnosisTitle.textContent = ui.diagnosisTitle;
+  els.codeReviewTitle.textContent = ui.codeReviewTitle;
+  els.studyPlanTitle.textContent = ui.studyPlanTitle;
+  if (!state.started && !state.submitted) {
+    els.startBtn.textContent = ui.start;
+    els.reportTitle.textContent = ui.reportTitle;
+    els.recommendedLevel.textContent = ui.pending;
+  } else if (state.started) {
+    els.startBtn.textContent = ui.inProgress;
+  } else {
+    els.startBtn.textContent = ui.submitted;
+  }
+  updateGoalOptions();
+  updateProgress();
+  if (state.started) renderCurrentQuestion();
+  if (state.submitted) renderReport(state.timeExpired);
+}
+
+function toggleLanguage() {
+  if (state.started) persistCurrentAnswer();
+  state.language = state.language === "zh" ? "en" : "zh";
+  updateStaticText();
 }
 
 function normalizeText(value) {
@@ -860,7 +1151,7 @@ els.prevBtn.addEventListener("click", () => goToQuestion(state.currentIndex - 1)
 els.nextBtn.addEventListener("click", () => goToQuestion(state.currentIndex + 1));
 els.submitBtn.addEventListener("click", () => submitAssessment(false));
 els.printBtn.addEventListener("click", () => window.print());
+els.languageToggle.addEventListener("click", toggleLanguage);
 
-renderQuestionMap();
-updateProgress();
+updateStaticText();
 updateTimerText();

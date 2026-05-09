@@ -8,23 +8,23 @@
   </head>
   <body>
     <main class="app-shell">
-      <aside class="sidebar" aria-label="测评控制台">
+      <aside class="sidebar" aria-label="测评控制台" data-i18n-aria-label="sidebarAriaLabel">
         <div class="brand">
           <span class="brand-mark" aria-hidden="true">U</span>
           <div>
-            <h1>USACO 能力评估</h1>
-            <p id="brandTagline">分层诊断 · 单题作答 · 代码题复核</p>
+            <h1 data-i18n="brandTitle">USACO 能力评估</h1>
+            <p id="brandTagline" data-i18n="brandTagline">分层诊断 · 单题作答 · 代码题复核</p>
           </div>
         </div>
 
         <section class="panel student-panel" aria-labelledby="student-title">
-          <h2 id="student-title">学员信息</h2>
+          <h2 id="student-title" data-i18n="studentTitle">学员信息</h2>
           <label>
-            <span id="studentNameLabel">姓名</span>
-            <input id="studentName" type="text" placeholder="例如：Alex">
+            <span id="studentNameLabel" data-i18n="studentNameLabel">姓名</span>
+            <input id="studentName" type="text" placeholder="例如：Alex" data-i18n-placeholder="studentNamePlaceholder" autocomplete="off">
           </label>
           <label>
-            <span id="studentLanguageLabel">当前编程语言</span>
+            <span id="studentLanguageLabel" data-i18n="studentLanguageLabel">当前编程语言</span>
             <select id="studentLanguage">
               <option value="C++">C++</option>
               <option value="Python">Python</option>
@@ -33,7 +33,7 @@
             </select>
           </label>
           <label>
-            <span id="studentGoalLabel">目标</span>
+            <span id="studentGoalLabel" data-i18n="studentGoalLabel">目标</span>
             <select id="studentGoal">
               <option value="bronze-starter">Bronze 入门</option>
               <option value="bronze-to-silver">Bronze 冲 Silver</option>
@@ -44,40 +44,37 @@
         </section>
 
         <section class="panel progress-panel" aria-labelledby="progress-title">
-          <h2 id="progress-title">测评进度</h2>
+          <h2 id="progress-title" data-i18n="progressTitle">测评进度</h2>
           <div class="timer">
-            <span id="timeLeftLabel">剩余时间</span>
-            <strong id="timeLeft">60:00</strong>
+            <span id="timeLeftLabel" data-i18n="timeLeftLabel">剩余时间</span>
+            <strong id="timeLeft" role="timer" aria-live="off">60:00</strong>
           </div>
           <div class="progress-track" aria-hidden="true">
             <div id="progressFill"></div>
           </div>
-          <p id="progressText">0 / 12 已完成</p>
+          <p id="progressText" aria-live="polite">0 / 12 已完成</p>
           <button id="startBtn" class="primary-btn" type="button">开始测评</button>
-          <button id="resetBtn" class="secondary-btn" type="button">重新开始</button>
+          <button id="resetBtn" class="secondary-btn" type="button" data-i18n="reset">重新开始</button>
         </section>
 
         <section class="panel question-map" aria-labelledby="map-title">
-          <h2 id="map-title">题目导航</h2>
-          <div id="questionMap" class="map-grid"></div>
+          <h2 id="map-title" data-i18n="mapTitle">题目导航</h2>
+          <div id="questionMap" class="map-grid" role="list"></div>
         </section>
       </aside>
 
       <section class="workspace">
         <header class="topbar">
           <div class="topbar-actions">
-            <button id="languageToggle" class="language-btn" type="button">中文</button>
+            <button id="languageToggle" class="language-btn" type="button" data-i18n="switchLanguage">中文</button>
           </div>
         </header>
 
         <section id="intro" class="intro-panel">
           <div>
-            <p id="introEyebrow" class="eyebrow">Assessment Flow</p>
-            <h2 id="introTitle">从基础读题到代码实现的完整入班测评</h2>
-            <p id="introCopy">
-              测评共 12 题，包含概念题、简答题和代码题。系统会自动初评客观题与代码结构，
-              并在报告中标出需要老师人工复核的高阶题。
-            </p>
+            <p id="introEyebrow" class="eyebrow" data-i18n="introEyebrow">Assessment Flow</p>
+            <h2 id="introTitle" data-i18n="introTitle">从基础读题到代码实现的完整入班测评</h2>
+            <p id="introCopy" data-i18n="introCopy">测评共 12 题，包含概念题、简答题和代码题。系统会自动初评客观题与代码结构，并在报告中标出需要老师人工复核的高阶题。</p>
           </div>
         </section>
 
@@ -100,54 +97,54 @@
             <div id="answerArea" class="answer-area"></div>
           </article>
 
-          <div id="feedback" class="feedback" hidden></div>
+          <div id="feedback" class="feedback" role="status" hidden></div>
 
-          <nav class="stage-actions" aria-label="题目操作">
-            <button id="prevBtn" class="secondary-btn" type="button">上一题</button>
-            <button id="saveBtn" class="primary-action" type="button">保存答案</button>
-            <button id="nextBtn" class="secondary-btn" type="button">下一题</button>
-            <button id="submitBtn" class="finish-btn" type="button">提交测评</button>
+          <nav class="stage-actions" aria-label="题目操作" data-i18n-aria-label="stageActionsAriaLabel">
+            <button id="prevBtn" class="secondary-btn" type="button" data-i18n="prev">上一题</button>
+            <button id="saveBtn" class="primary-action" type="button" data-i18n="save">保存答案</button>
+            <button id="nextBtn" class="secondary-btn" type="button" data-i18n="next">下一题</button>
+            <button id="submitBtn" class="finish-btn" type="button" data-i18n="submit">提交测评</button>
           </nav>
         </section>
 
         <section id="report" class="report" aria-live="polite" hidden>
           <div class="report-header">
             <div>
-              <p class="eyebrow">Assessment Report</p>
-              <h2 id="reportTitle">测评报告</h2>
+              <p class="eyebrow" data-i18n="reportEyebrow">Assessment Report</p>
+              <h2 id="reportTitle" data-i18n="reportTitle">测评报告</h2>
             </div>
-            <button id="printBtn" class="secondary-btn" type="button">打印报告</button>
+            <button id="printBtn" class="secondary-btn" type="button" data-i18n="print">打印报告</button>
           </div>
           <div class="score-grid">
             <article>
-              <span id="finalScoreLabel">综合分</span>
+              <span id="finalScoreLabel" data-i18n="finalScoreLabel">综合分</span>
               <strong id="finalScore">0</strong>
             </article>
             <article>
-              <span id="recommendedLevelLabel">推荐班型</span>
+              <span id="recommendedLevelLabel" data-i18n="recommendedLevelLabel">推荐班型</span>
               <strong id="recommendedLevel">待评估</strong>
             </article>
             <article>
-              <span id="completionRateLabel">完成度</span>
+              <span id="completionRateLabel" data-i18n="completionRateLabel">完成度</span>
               <strong id="completionRate">0%</strong>
             </article>
           </div>
           <div class="report-columns">
             <div class="panel">
-              <h3 id="skillBarsTitle">能力雷达</h3>
+              <h3 id="skillBarsTitle" data-i18n="skillBarsTitle">能力雷达</h3>
               <div id="skillBars" class="skill-bars"></div>
             </div>
             <div class="panel">
-              <h3 id="diagnosisTitle">诊断结论</h3>
+              <h3 id="diagnosisTitle" data-i18n="diagnosisTitle">诊断结论</h3>
               <ul id="diagnosisList" class="diagnosis-list"></ul>
             </div>
           </div>
           <div class="panel">
-            <h3 id="codeReviewTitle">代码题复核清单</h3>
+            <h3 id="codeReviewTitle" data-i18n="codeReviewTitle">代码题复核清单</h3>
             <div id="codeReviewList" class="review-list"></div>
           </div>
           <div class="panel">
-            <h3 id="studyPlanTitle">学习路径建议</h3>
+            <h3 id="studyPlanTitle" data-i18n="studyPlanTitle">学习路径建议</h3>
             <ol id="studyPlan" class="study-plan"></ol>
           </div>
         </section>

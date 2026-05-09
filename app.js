@@ -359,9 +359,6 @@ const uiText = {
     submitted: "测评已提交",
     reset: "重新开始",
     mapTitle: "题目导航",
-    topEyebrow: "Adaptive Diagnostic",
-    topTitle: "一题一题完成，逐步定位真实 USACO 能力",
-    topSubtitle: "分层入班测评工具",
     waiting: "等待开始",
     estimate: "当前估计",
     introEyebrow: "Assessment Flow",
@@ -432,9 +429,6 @@ const uiText = {
     submitted: "Submitted",
     reset: "Restart",
     mapTitle: "Questions",
-    topEyebrow: "Adaptive Diagnostic",
-    topTitle: "Complete one question at a time to identify real USACO ability",
-    topSubtitle: "Placement assessment tool",
     waiting: "Waiting",
     estimate: "Estimate",
     introEyebrow: "Assessment Flow",
@@ -532,9 +526,6 @@ const els = {
   progressTitle: document.querySelector("#progress-title"),
   timeLeftLabel: document.querySelector("#timeLeftLabel"),
   mapTitle: document.querySelector("#map-title"),
-  topEyebrow: document.querySelector("#topEyebrow"),
-  topTitle: document.querySelector("#topTitle"),
-  topSubtitle: document.querySelector("#topSubtitle"),
   introEyebrow: document.querySelector("#introEyebrow"),
   introTitle: document.querySelector("#introTitle"),
   introCopy: document.querySelector("#introCopy"),
@@ -1087,9 +1078,6 @@ function updateStaticText() {
   els.timeLeftLabel.textContent = ui.timeLeftLabel;
   els.resetBtn.textContent = ui.reset;
   els.mapTitle.textContent = ui.mapTitle;
-  els.topEyebrow.textContent = ui.topEyebrow;
-  els.topTitle.textContent = ui.topTitle;
-  els.topSubtitle.textContent = ui.topSubtitle;
   els.introEyebrow.textContent = ui.introEyebrow;
   els.introTitle.textContent = ui.introTitle;
   els.introCopy.textContent = ui.introCopy;

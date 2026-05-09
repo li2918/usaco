@@ -476,7 +476,7 @@ const uiText = {
 const TOTAL_SECONDS = 60 * 60;
 
 const state = {
-  language: "zh",
+  language: "en",
   started: false,
   submitted: false,
   timeExpired: false,
